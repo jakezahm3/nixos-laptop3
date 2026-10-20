@@ -41,7 +41,7 @@
   live = f: config.lib.file.mkOutOfStoreSymlink "${dots}/${f}";
 in {
   imports = [
-    inputs.nix4nvchad.homeManagerModules.default
+    #inputs.nix4nvchad.homeManagerModules.default
     inputs.noctalia.homeModules.default
     inputs.umbriel.homeModules.default
   ];
