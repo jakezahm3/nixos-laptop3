@@ -200,16 +200,19 @@
   # services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."jzahm" = {
-    isNormalUser = true;
-    homeMode = "755";
-    description = "Jacob Zahm";
-    extraGroups = ["networkmanager" "wheel"];
-    shell = pkgs.fish;
-    packages = with pkgs; [
-      kdePackages.kate
-      thunderbird
-    ];
+  users.users = {
+    "jzahm" = {
+      isNormalUser = true;
+      homeMode = "755";
+      description = "Jacob Zahm";
+      extraGroups = ["networkmanager" "wheel"];
+      shell = pkgs.fish;
+      packages = with pkgs; [
+        kdePackages.kate
+        thunderbird
+      ];
+    };
+    "root".shell = pkgs.bash;
   };
 
   # Install firefox.
