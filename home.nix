@@ -381,14 +381,14 @@ in {
     scripts = with pkgs.mpvScripts; [
       mpris
       modernz
-      mpv_sponsorblock
+      sponsorblock
       visualizer
       webtorrent-mpv-hook
       mpv-osc-modern
       mpv-gallery-view
       mpv-reload
       mpv-cheatsheet-ng
-      mpv-acompressor
+      acompressor
     ];
   };
 
