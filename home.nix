@@ -381,7 +381,6 @@ in {
     scripts = with pkgs.mpvScripts; [
       mpris
       modernz
-      mpv-quality-menu
       mpv_sponsorblock
       visualizer
       webtorrent-mpv-hook
