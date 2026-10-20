@@ -419,17 +419,6 @@ in {
     };
   };
 
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      set -gx PATH "/home/jzahm/.local/bin" $PATH
-    '';
-    shellAliases = {
-      nrs = "nixos-rebuild switch --sudo --flake ~/nixos#nixos";
-      gp = "git add -A && git commit";
-    };
-  };
-
   services.wl-clip-persist = {
     enable = true;
     clipboardType = "both";
