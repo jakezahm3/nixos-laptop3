@@ -341,7 +341,6 @@ in {
     wlroots
     wlr-randr
     htop
-    thunar
     python314Packages.numpy
     onnxruntime
     python314Packages.pillow
