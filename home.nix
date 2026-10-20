@@ -129,6 +129,8 @@ in {
   };
 
   home.packages = [
+    pkgs.cargo
+    pkgs.rustc
     pkgs.shotman
     pkgs.virt-viewer
     pkgs.woeusb-ng
