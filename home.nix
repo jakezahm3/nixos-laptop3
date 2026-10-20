@@ -166,7 +166,6 @@ in {
     pkgs.eyedropper
     pkgs.mcp-nixos
     pkgs.python313Packages.pip
-    pkgs.python313Packages.fastmcp
     pkgs.toolhive
     pkgs.python313Packages.mcp
     pkgs.python313Packages.fastapi-mcp
