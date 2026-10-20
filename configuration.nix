@@ -54,6 +54,8 @@ in {
     inputs.umbriel.nixosModules.default
   ];
 
+  networking.wireguard.enable = true;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -321,6 +323,8 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
+    wireguard-ui
+    wireguard-tools
     conda
     nvchad
     flake-checker
