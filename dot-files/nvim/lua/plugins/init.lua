@@ -42,81 +42,83 @@ return {
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
-    opts = {
-      -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
-      -- 'super-tab' for mappings similar to vscode (tab to accept)
-      -- 'enter' for enter to accept
-      -- 'none' for no mappings
-      --
-      -- All presets have the following mappings:
-      -- C-space: Open menu or open docs if already open
-      -- C-n/C-p or Up/Down: Select next/previous item
-      -- C-e: Hide menu
-      -- C-k: Toggle signature help (if signature.enabled = true)
-      --
-      -- See :h blink-cmp-config-keymap for defining your own keymap
-      keymap = { preset = "default" },
+    config = function()
+      require("blink.cmp").setup({
+        -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
+        -- 'super-tab' for mappings similar to vscode (tab to accept)
+        -- 'enter' for enter to accept
+        -- 'none' for no mappings
+        --
+        -- All presets have the following mappings:
+        -- C-space: Open menu or open docs if already open
+        -- C-n/C-p or Up/Down: Select next/previous item
+        -- C-e: Hide menu
+        -- C-k: Toggle signature help (if signature.enabled = true)
+        --
+        -- See :h blink-cmp-config-keymap for defining your own keymap
+        keymap = { preset = "default" },
 
-      -- (Default) Only show the documentation popup when manually triggered
-      completion = {
-        menu = {
-          draw = {
-            -- We don't need label_description now because label and label_description are already
-            -- combined together in label by colorful-menu.nvim.
-            columns = { { "kind_icon" }, { "label", gap = 1 } },
-            components = {
-              label = {
-                text = function(ctx)
-                  return require("colorful-menu").blink_components_text(ctx)
-                end,
-                highlight = function(ctx)
-                  return require("colorful-menu").blink_components_highlight(ctx)
-                end,
+        -- (Default) Only show the documentation popup when manually triggered
+        completion = {
+          menu = {
+            draw = {
+              -- We don't need label_description now because label and label_description are already
+              -- combined together in label by colorful-menu.nvim.
+              columns = { { "kind_icon" }, { "label", gap = 1 } },
+              components = {
+                label = {
+                  text = function(ctx)
+                    return require("colorful-menu").blink_components_text(ctx)
+                  end,
+                  highlight = function(ctx)
+                    return require("colorful-menu").blink_components_highlight(ctx)
+                  end,
+                },
               },
             },
           },
         },
-      },
-      -- (Default) list of enabled providers defined so that you can extend it
-      -- elsewhere in your config, without redefining it, due to `opts_extend`
-      sources = {
-        -- add 'git' to the list
-        default = { "git", "lsp", "path", "snippets", "buffer", "env", "claude" },
-        providers = {
-          git = {
-            module = "blink-cmp-git",
-            name = "Git",
-            opts = {
-              -- options for the blink-cmp-git
+        -- (Default) list of enabled providers defined so that you can extend it
+        -- elsewhere in your config, without redefining it, due to `opts_extend`
+        sources = {
+          -- add 'git' to the list
+          default = { "git", "lsp", "path", "snippets", "buffer", "env", "claude" },
+          providers = {
+            git = {
+              module = "blink-cmp-git",
+              name = "Git",
+              opts = {
+                -- options for the blink-cmp-git
+              },
             },
-          },
-          env = {
-            name = "Env",
-            module = "blink-cmp-env",
-            --- @type blink-cmp-env.Options
-            opts = {
-              -- item_kind defaults to CompletionItemKind.Variable; requiring blink.cmp.types
-              -- here fails because this file is evaluated before blink.cmp is on the rtp
-              show_braces = false,
-              show_documentation_window = true,
+            env = {
+              name = "Env",
+              module = "blink-cmp-env",
+              --- @type blink-cmp-env.Options
+              opts = {
+                -- item_kind defaults to CompletionItemKind.Variable; requiring blink.cmp.types
+                -- here fails because this file is evaluated before blink.cmp is on the rtp
+                show_braces = false,
+                show_documentation_window = true,
+              },
             },
-          },
-          claude = {
-            name = "Haiku",
-            module = "claude-complete.blink",
-            async = true, -- ~2s round-trip: never block the menu on us
-            timeout_ms = 3000,
-            score_offset = -1, -- sit just below your LSP; raise to prioritise
-            -- opts = { score_offset = -1 }, -- optional per-item score bump
+            claude = {
+              name = "Haiku",
+              module = "claude-complete.blink",
+              async = true, -- ~2s round-trip: never block the menu on us
+              timeout_ms = 3000,
+              score_offset = -1, -- sit just below your LSP; raise to prioritise
+              -- opts = { score_offset = -1 }, -- optional per-item score bump
+            },
           },
         },
-      },
 
-      -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
-      -- You may use a lua implementation instead by using `implementation = "lua"`
-      -- See the fuzzy documentation for more information
-      fuzzy = { implementation = "rust" },
-    },
+        -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
+        -- You may use a lua implementation instead by using `implementation = "lua"`
+        -- See the fuzzy documentation for more information
+        fuzzy = { implementation = "rust" },
+      })
+    end,
   },
   {
     "trixnz/sops.nvim",
