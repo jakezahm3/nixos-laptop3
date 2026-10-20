@@ -56,9 +56,6 @@ return {
 
       -- (Default) Only show the documentation popup when manually triggered
       completion = {
-        documentation = {
-          auto_show = false,
-        },
         menu = {
           draw = {
             -- We don't need label_description now because label and label_description are already
@@ -77,12 +74,6 @@ return {
           },
         },
       },
-
-      cmdline = {
-        keymap = { preset = "inherit" },
-        completion = { menu = { auto_show = true } },
-      },
-
       -- (Default) list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
