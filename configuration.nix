@@ -171,17 +171,53 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
+  services.pipewire.socketActivation = false;
+  systemd.user.services.wireplumber.wantedBy = ["default.target"];
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
+    systemWide = true;
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    # jack.enable = true;
+    jack.enable = true;
+    extraConfig.pipewire = {
+      "98-crackling-fix" = {
+        "context.properties" = {
+          "default.clock.quantum" = 1024;
+          "default.clock.min-quantum" = 1024;
+          "default.clock.max-quantum" = 8192;
+        };
+      };
+    };
+    wireplumber = {
+      enable = true;
+      configPackages = [
+        (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/10-bluez.conf" ''
+          monitor.bluez.properties = {
+            bluez5.enable-sbc-xq = true
+            bluez5.enable-msbc = true
+            bluez5.enable-hw-volume = true
+            bluez5.roles = [hsp_hs hsp_ag hfp_hf hfp_ag]
+          }
+        '')
+      ];
+      extraConfig."10-bluez" = {
+        "monitor.bluez.properties" = {
+          "bluez5.enable-sbc-xq" = true;
+          "bluez5.enable-msbc" = true;
+          "bluez5.enable-hw-volume" = true;
+          "bluez5.roles" = [
+            "hsp_hs"
+            "hsp_ag"
+            "hfp_hf"
+            "hfp_ag"
+          ];
+        };
+      };
+    };
   };
 
   programs.bash = {
@@ -203,9 +239,10 @@
   users.users = {
     "jzahm" = {
       isNormalUser = true;
+      linger = true;
       homeMode = "755";
       description = "Jacob Zahm";
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = ["networkmanager" "wheel" "audio"];
       shell = pkgs.fish;
       packages = with pkgs; [
         kdePackages.kate
@@ -304,6 +341,10 @@
     libsecret
     thunar
     gvfs
+    pavucontrol # PulseAudio Volume Control
+    pamixer # Command-line mixer for PulseAudio
+    bluez # Bluetooth support
+    bluez-tools # Bluetooth tools
   ];
 
   fonts.packages = with pkgs; [
@@ -332,10 +373,7 @@
 
   programs.nh = {
     enable = true;
-    # Points nh directly to your system flake directory
     flake = "/home/jzahm/nixos";
-
-    # Optional: Automatically cleans old generations in the background
     clean = {
       enable = true;
     };

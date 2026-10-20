@@ -386,9 +386,10 @@ in {
       webtorrent-mpv-hook
       mpv-osc-modern
       mpv-gallery-view
-      mpv-reload
       mpv-cheatsheet-ng
       acompressor
+      autodeint
+      autosubsync-mpv
     ];
   };
 
