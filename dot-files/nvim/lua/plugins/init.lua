@@ -13,11 +13,41 @@ require("base46").load_all_highlights()
 -- onfiguration using new vim.lsp.config API
 return {
   {
+    "xzbdmw/colorful-menu.nvim",
+    config = function()
+      require("blink.cmp").setup({
+        completion = {
+          menu = {
+            draw = {
+              -- We don't need label_description now because label and label_description are already
+              -- combined together in label by colorful-menu.nvim.
+              columns = { { "kind_icon" }, { "label", gap = 1 } },
+              components = {
+                label = {
+                  text = function(ctx)
+                    return require("colorful-menu").blink_components_text(ctx)
+                  end,
+                  highlight = function(ctx)
+                    return require("colorful-menu").blink_components_highlight(ctx)
+                  end,
+                },
+              },
+            },
+          },
+        },
+      })
+    end,
+  },
+  {
     "saghen/blink.cmp",
     dependencies = {
+      {
+        "Kaiser-Yang/blink-cmp-git",
+      },
       "saghen/blink.lib",
       -- optional: provides snippets for the snippet source
       "rafamadriz/friendly-snippets",
+      "bydlw98/blink-cmp-env",
     },
     build = function()
       -- build the fuzzy matcher, optionally add a timeout to `pwait(timeout_ms)`
@@ -45,9 +75,44 @@ return {
       -- (Default) Only show the documentation popup when manually triggered
       completion = { documentation = { auto_show = false } },
 
+      cmdline = {
+        keymap = { preset = "inherit" },
+        completion = { menu = { auto_show = true } },
+      },
+
       -- (Default) list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
-      sources = { default = { "lsp", "path", "snippets", "buffer" } },
+      sources = {
+        -- add 'git' to the list
+        default = { "git", "lsp", "path", "snippets", "buffer", "env", "claude" },
+        providers = {
+          git = {
+            module = "blink-cmp-git",
+            name = "Git",
+            opts = {
+              -- options for the blink-cmp-git
+            },
+          },
+          env = {
+            name = "Env",
+            module = "blink-cmp-env",
+            --- @type blink-cmp-env.Options
+            opts = {
+              item_kind = require("blink.cmp.types").CompletionItemKind.Variable,
+              show_braces = false,
+              show_documentation_window = true,
+            },
+          },
+          claude = {
+            name = "Haiku",
+            module = "claude-complete.blink",
+            async = true, -- ~2s round-trip: never block the menu on us
+            timeout_ms = 3000,
+            score_offset = -1, -- sit just below your LSP; raise to prioritise
+            -- opts = { score_offset = -1 }, -- optional per-item score bump
+          },
+        },
+      },
 
       -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
       -- You may use a lua implementation instead by using `implementation = "lua"`
@@ -274,7 +339,8 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      ensure_installed = {
+      ensure_installednstalled = {
+        "nix",
         "hcl",
         "terraform",
         "html",
@@ -346,56 +412,56 @@ return {
       keymap = { enabled = true },
     },
   },
-  -- {
-  -- 	"ramanshrivastava/claude-complete.nvim",
-  -- 	event = "InsertEnter",
-  -- 	opts = {
-  -- 		command = "claude", -- CLI to invoke
-  -- 		model = "sonnet", -- passed as --model
-  -- 		cli_args = { -- extra flags (--model is appended automatically)
-  -- 			"-p",
-  -- 			"--max-turns",
-  -- 			"100",
-  -- 			"--output-format",
-  -- 			"stream-json",
-  -- 			"--verbose",
-  -- 			"--permission-mode",
-  -- 			"bypassPermissions",
-  -- 		},
-  -- 		timeout_ms = 60000,
-  -- 		keymaps = { -- set any to false to leave it unbound
-  -- 			trigger = "<C-g>",
-  -- 			accept = "<Tab>",
-  -- 			cancel = "<C-c>",
-  -- 		},
-  -- 		context = {
-  -- 			inline_full_under = 500, -- send the whole file when shorter than this
-  -- 			above = 150, -- otherwise lines kept above the cursor
-  -- 			below = 50, -- and below
-  -- 			imports = 20, -- leading lines always included
-  -- 			diagnostics = 5, -- nearest LSP diagnostics to include
-  -- 			tree = 15, -- top-level project-tree entries
-  -- 		},
-  -- 		auto = { -- the automatic, Cursor-style lane (opt-in)
-  -- 			enabled = false, -- off by default
-  -- 			model = "claude-haiku-4-5", -- a cheap, fast model is strongly recommended
-  -- 			debounce_ms = 350, -- idle time before a completion is requested
-  -- 			idle_shutdown_min = 10, -- stop the worker after this many idle minutes
-  -- 			max_filesize_kb = 500, -- skip buffers larger than this
-  -- 			max_lines = 10000, -- skip buffers with more lines than this
-  -- 			disabled_filetypes = { "TelescopePrompt", "snacks_picker_input", "oil" },
-  -- 			show_with_menu = true, -- show ghost text even when the completion menu is open
-  -- 			hint = { enabled = true, text = nil }, -- source badge; text=nil derives from the model
-  -- 			blink = { enabled = true }, -- advisory flag for the blink.cmp source (see below)
-  -- 			worker_env = { MAX_THINKING_TOKENS = "0" }, -- worker-only env; {} re-enables thinking
-  -- 		},
-  -- 		system_prompt = nil, -- string to replace the built-in prompt (manual lane)
-  -- 		highlights = {
-  -- 			ghost = { fg = "#b4befe", italic = true },
-  -- 		},
-  -- 		ui = { rich = true }, -- rich snacks panel when available, else cmdline spinner
-  -- 	},
-  -- },
+  {
+    "ramanshrivastava/claude-complete.nvim",
+    event = "InsertEnter",
+    opts = {
+      command = "claude", -- CLI to invoke
+      model = "sonnet", -- passed as --model
+      cli_args = { -- extra flags (--model is appended automatically)
+        "-p",
+        "--max-turns",
+        "100",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--permission-mode",
+        "bypassPermissions",
+      },
+      timeout_ms = 60000,
+      keymaps = { -- set any to false to leave it unbound
+        trigger = "<C-g>",
+        accept = "<Tab>",
+        cancel = "<C-c>",
+      },
+      context = {
+        inline_full_under = 500, -- send the whole file when shorter than this
+        above = 150, -- otherwise lines kept above the cursor
+        below = 50, -- and below
+        imports = 20, -- leading lines always included
+        diagnostics = 5, -- nearest LSP diagnostics to include
+        tree = 15, -- top-level project-tree entries
+      },
+      auto = { -- the automatic, Cursor-style lane (opt-in)
+        enabled = false, -- off by default
+        model = "claude-haiku-4-5", -- a cheap, fast model is strongly recommended
+        debounce_ms = 350, -- idle time before a completion is requested
+        idle_shutdown_min = 10, -- stop the worker after this many idle minutes
+        max_filesize_kb = 500, -- skip buffers larger than this
+        max_lines = 10000, -- skip buffers with more lines than this
+        disabled_filetypes = { "TelescopePrompt", "snacks_picker_input", "oil" },
+        show_with_menu = true, -- show ghost text even when the completion menu is open
+        hint = { enabled = true, text = nil }, -- source badge; text=nil derives from the model
+        blink = { enabled = true }, -- advisory flag for the blink.cmp source (see below)
+        worker_env = { MAX_THINKING_TOKENS = "0" }, -- worker-only env; {} re-enables thinking
+      },
+      system_prompt = nil, -- string to replace the built-in prompt (manual lane)
+      highlights = {
+        ghost = { fg = "#b4befe", italic = true },
+      },
+      ui = { rich = true }, -- rich snacks panel when available, else cmdline spinner
+    },
+  },
   {
     "brenton-leighton/multiple-cursors.nvim",
     version = "*", -- Use the latest tagged version
