@@ -396,7 +396,6 @@ in {
   services.blueman-applet.enable = true;
   services.clipmenu.enable = true;
   services.elephant.enable = true;
-  services.tailscale.systray.enable = true;
   services.ssh-agent.enable = true;
   services.spotifyd.enable = true;
   services.podman = {
@@ -408,7 +407,6 @@ in {
 
 
 
-  services.jellyfin-mpv-shim.enable = true;
   services.wl-clip-persist = {
     enable = true;
     clipboardType = "both";
