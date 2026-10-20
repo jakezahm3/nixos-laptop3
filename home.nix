@@ -167,10 +167,6 @@ in {
     pkgs.mcp-nixos
     pkgs.python313Packages.pip
     pkgs.toolhive
-    pkgs.python313Packages.mcp
-    pkgs.python313Packages.fastapi-mcp
-    pkgs.python313Packages.mcpadapt
-    (pkgs.lib.lowPrio pkgs.mcp-server-sequential-thinking)
     pkgs.mcp-server-fetch
     pkgs.mcp-server-filesystem
     pkgs.mcp-language-server
@@ -182,7 +178,6 @@ in {
     pkgs.open-websearch
     pkgs.pdf-mcp
     pkgs.dhcpdump
-    (pkgs.lib.lowPrio pkgs.mcp-server-memory)
     pkgs.nixd
     pkgs.gcc
     pkgs.traceroute
