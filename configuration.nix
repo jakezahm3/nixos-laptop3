@@ -40,6 +40,9 @@ in {
           tex-fmt
           swaybg
           luau-lsp
+          nil
+          nixd
+          alejandra
         ];
       };
     })

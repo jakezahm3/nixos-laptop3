@@ -57,12 +57,27 @@
         "type": "github"
       }
     },
+    "my-nvchad-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792478253,
+        "narHash": "sha256-Xyte4oYKM+ZS/m/6+x3r5NSzdGcHyZP7D5p91Jcr6pw=",
+        "path": "/home/jzahm/nixos/dot-files/nvim",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/jzahm/nixos/dot-files/nvim",
+        "type": "path"
+      }
+    },
     "nix4nvchad": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
         ],
-        "nvchad-starter": "nvchad-starter"
+        "nvchad-starter": [
+          "my-nvchad-config"
+        ]
       },
       "locked": {
         "lastModified": 1791945107,
@@ -154,27 +169,11 @@
         "type": "github"
       }
     },
-    "nvchad-starter": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1753939018,
-        "narHash": "sha256-xdLr6tlU9uA+wu0pqha2br0fdVm+1MjgjbB5awz9ICU=",
-        "owner": "NvChad",
-        "repo": "starter",
-        "rev": "e3572e1f5e1c297212c3deeb17b7863139ce663e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NvChad",
-        "ref": "main",
-        "repo": "starter",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "claude-desktop": "claude-desktop",
         "home-manager": "home-manager",
+        "my-nvchad-config": "my-nvchad-config",
         "nix4nvchad": "nix4nvchad",
         "nixpkgs": "nixpkgs_2",
         "noctalia": "noctalia",
