@@ -175,12 +175,11 @@
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
-    systemWide = true;
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    jack.enable = true;
+    #jack.enable = true;
     extraConfig.pipewire = {
       "98-crackling-fix" = {
         "context.properties" = {
@@ -189,9 +188,6 @@
           "default.clock.max-quantum" = 8192;
         };
       };
-    };
-    wireplumber = {
-      enable = true;
     };
   };
 
