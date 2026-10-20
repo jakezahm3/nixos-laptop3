@@ -321,10 +321,6 @@
 
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = true;
-    Policy = {
-      AutoEnable = true;
-    };
   };
 
   fonts.packages = with pkgs.nerd-fonts; [
