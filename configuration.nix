@@ -325,7 +325,6 @@
     settings = {
       General = {
         Experimental = true;
-        ControllerMode = "bredr";
         FastConnectable = true;
         Enable = "Source,Sink,Media,Socket";
       };
@@ -355,7 +354,6 @@
     options iwlmvm power_scheme=1
   '';
 
-  services.blueman.enable = true;
 
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka-term
