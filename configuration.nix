@@ -322,6 +322,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
+    conda
     nvchad
     flake-checker
     nixtract
