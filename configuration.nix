@@ -4,7 +4,6 @@
 {
   pkgs,
   inputs,
-  config,
   ...
 }: let
   system = pkgs.stdenv.hostPlatform.system;
