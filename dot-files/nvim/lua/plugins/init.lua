@@ -15,10 +15,10 @@ return {
   {
     "xzbdmw/colorful-menu.nvim",
     config = function()
-        -- You don't need to set these options.
-        require("colorful-menu").setup({})
+      -- You don't need to set these options.
+      require("colorful-menu").setup({})
     end,
-},
+  },
   {
     "saghen/blink.cmp",
     dependencies = {
@@ -29,6 +29,7 @@ return {
       -- optional: provides snippets for the snippet source
       "rafamadriz/friendly-snippets",
       "bydlw98/blink-cmp-env",
+      "xzbdmw/colorful-menu.nvim",
     },
     build = function()
       -- build the fuzzy matcher, optionally add a timeout to `pwait(timeout_ms)`
