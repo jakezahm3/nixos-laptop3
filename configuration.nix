@@ -257,7 +257,6 @@ in {
       shell = pkgs.fish;
       packages = with pkgs; [
         kdePackages.kate
-        thunderbird
       ];
     };
     "root".shell = pkgs.bash;
