@@ -171,9 +171,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.pipewire.socketActivation = false;
-  systemd.user.services.wireplumber.wantedBy = ["default.target"];
-  # Enable sound with pipewire.
+  services.pipewire.socketActivation = true;
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
