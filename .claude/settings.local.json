@@ -1,0 +1,18 @@
+{
+  "enabledMcpjsonServers": [
+    "github-official",
+    "nixos",
+    "context7",
+    "context7-local",
+    "sequential-thinking",
+    "fetch",
+    "filesystem",
+    "language-server",
+    "time",
+    "memory",
+    "open-websearch",
+    "pdf-mcp",
+    "playwright",
+    "terraform"
+  ]
+}

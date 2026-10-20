@@ -326,6 +326,7 @@
       thunar-vcs-plugin
       gvfs
       tumbler
+      transmission_4-gtk
     ];
   };
 
@@ -348,6 +349,11 @@
     age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
     # Decrypted to /run/secrets/tailscale_key (root, 0400).
     secrets.tailscale_key = {};
+  };
+
+  services.transmission = {
+    enable = true;
+    user = "jzahm";
   };
 
   zramSwap.enable = true;
