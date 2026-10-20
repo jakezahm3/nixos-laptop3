@@ -378,7 +378,19 @@ in {
 
   programs.mpv = {
     enable = true;
-    scripts = [pkgs.mpvScripts.mpris];
+    scripts = with pkgs.mpvScripts; [
+      mpris
+      modernz
+      mpv-quality-menu
+      mpv_sponsorblock
+      visualizer
+      webtorrent-mpv-hook
+      mpv-osc-modern
+      mpv-gallery-view
+      mpv-reload
+      mpv-cheatsheet-ng
+      mpv-acompressor
+    ];
   };
 
   home.sessionVariables = {
