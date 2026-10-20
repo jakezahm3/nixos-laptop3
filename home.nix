@@ -245,7 +245,6 @@ in {
             --add-flags "--password-store=\"gnome-libsecret\""
         '';
     }))
-    pkgs.transmission_4-gtk
   ];
 
   i18n.glibcLocales = pkgs.glibcLocales.override {
@@ -274,6 +273,20 @@ in {
       safe.directory = "/etc/nixos";
     };
     ignores = ["**/.claude/settings.local.json"];
+  };
+
+  programs.ghostty = {
+    enable = true;
+    enableFishIntegration = true;
+    systemd.enable = true;
+    enableBashIntegration = true;
+    installBatSyntax = true;
+    installVimSyntax = true;
+    settings = {
+      font-size = 14;
+      font = "IosevkaTerm Nerd Font";
+      theme = "noctalia";
+    };
   };
 
   # Also registers gh as git's credential helper for github.com, using the

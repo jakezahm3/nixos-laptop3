@@ -184,6 +184,18 @@
     # jack.enable = true;
   };
 
+  programs.bash = {
+    enable = true;
+    completion.enable = true;
+    interactiveShellInit = ''
+      # "check if parent process is not fish" && "make nested shells work properly"
+      if grep -qv fish /proc/$PPID/comm && [[ $SHLVL == [12] ]]; then
+          # set $SHELL for better integration with programs like nix shell, tmux, etc.
+          SHELL=${pkgs.fish}/bin/fish exec fish
+      fi
+    '';
+  };
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
@@ -268,7 +280,6 @@
     virtiofsd
     git
     qbittorrent
-    ghostty
     virtiofsd
     xclip
     xwayland-satellite
