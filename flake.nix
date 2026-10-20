@@ -7,7 +7,7 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-      },
+    };
     my-nvchad-config = {
       url = "path:/home/jzahm/nixos/dot-files/nvim";
       flake = false;
