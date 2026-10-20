@@ -393,9 +393,11 @@ in {
     ];
   };
 
-  services.blueman-applet.enable = true;
-  services.clipmenu.enable = true;
-  services.elephant.enable = true;
+  programs.brave-origin.enable = true;
+  programs.fzf.enable = true;
+  programs.ripgrep-all.enable = true;
+
+
   services.ssh-agent.enable = true;
   services.spotifyd.enable = true;
   services.podman = {
@@ -405,7 +407,28 @@ in {
   services.blanket.enable = true;
   services.autorandr.enable = true;
 
+  programs.cudatext.enable = true;
 
+  programs.direnv = {
+    enable = true;
+    enableFishIntegration = true;
+    enableGitIntegration = true;
+    nix-direnv = {
+      enable = true;
+      enableFlakes = true;
+    };
+  };
+
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set -gx PATH "/home/jzahm/.local/bin" $PATH
+    '';
+    shellAliases = {
+      nrs = "nixos-rebuild switch --sudo --flake ~/nixos#nixos";
+      gp = "git add -A && git commit";
+    };
+  };
 
   services.wl-clip-persist = {
     enable = true;
