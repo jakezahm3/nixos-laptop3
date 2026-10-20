@@ -326,7 +326,7 @@
       thunar-vcs-plugin
       gvfs
       tumbler
-      transmission_4-qt6
+      transmission_4-gtk
     ];
   };
 
