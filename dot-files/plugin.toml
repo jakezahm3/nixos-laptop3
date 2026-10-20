@@ -1,0 +1,20 @@
+id = "jakezahm3/custom-clock"
+name = "Custom Clock"
+version = "0.1.0"
+plugin_api = 26
+author = "jakezahm3"
+license = "MIT"
+dependencies = []
+tags = ["clock", "desktop"]
+icon = "clock"
+description = "Seven-segment desktop clock with the time, a red divider, and the date."
+
+[[desktop_widget]]
+id = "clock"
+entry = "init.luau"
+
+  [[desktop_widget.setting]]
+  key = "use_24_hour"
+  type = "bool"
+  label_key = "settings.use_24_hour.label"
+  default = false
