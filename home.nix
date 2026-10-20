@@ -376,6 +376,10 @@ in {
     '';
   };
 
+  programs.mpv = {
+    enable = true;
+    };
+
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
