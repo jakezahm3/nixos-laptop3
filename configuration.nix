@@ -6,7 +6,16 @@
   inputs,
   config,
   ...
-}: {
+}: let
+  system = pkgs.stdenv.hostPlatform.system;
+in {
+  nixpkgs.overlays = [
+    (final: prev: {
+      nvchad = inputs.nix4nvchad.packages.${system}.default.override {
+        # Custom configuration goes here
+      };
+    })
+  ];
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -282,6 +291,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    nvchad
     flake-checker
     nixtract
     vim

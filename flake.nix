@@ -47,7 +47,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             backupFileExtension = "FUCK";
-            extraSpecialArgs = {inherit inputs;};
+            #extraSpecialArgs = {inherit inputs;};
             users."jzahm" = import ./home.nix;
           };
         }
