@@ -393,6 +393,42 @@ in {
     ];
   };
 
+  services.blueman-applet.enable = true;
+  services.clipmenu.enable = true;
+  services.elephant.enable = true;
+  tailscale-systray.enable = true;
+  services.ssh-agent.enable = true;
+  services.spotifyd.enable = true;
+  services.podman = {
+    enable = true;
+  };
+  services.mpris-proxy.enable = true;
+  services.blanket.enable = true;
+  services.autorandr.enable = true;
+
+
+
+  services.jellyfin-mpv-shim.enable = true;
+  services.wl-clip-persist = {
+    enable = true;
+    clipboardType = "both";
+    extraOptions = [
+      "--write-timeout"
+      "1000"
+      "--ignore-event-on-error"
+      "--all-mime-type-regex"
+      "'(?i)^(?!image/).+'"
+      "--selection-size-limit"
+      "1048576"
+    ];
+  };
+
+  services.walker = {
+    enable = true;
+    enableElephantIntegration = true;
+    systemd.enable = true;
+  };
+
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
