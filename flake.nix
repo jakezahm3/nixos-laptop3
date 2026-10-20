@@ -7,10 +7,15 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+      },
+    my-nvchad-config = {
+      url = "path:/home/jzahm/nixos/dot-files/nvim";
+      flake = false;
     };
     nix4nvchad = {
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nvchad-starter.follows = "my-nvchad-config";
     };
     noctalia = {
       url = "github:noctalia-dev/noctalia";
