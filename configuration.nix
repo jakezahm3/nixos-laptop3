@@ -175,7 +175,6 @@
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
-    systemWide = true;
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
@@ -318,10 +317,6 @@
     bluez # Bluetooth support
     bluez-tools # Bluetooth tools
   ];
-
-  hardware.bluetooth = {
-    enable = true;
-  };
 
   fonts.packages = with pkgs.nerd-fonts; [
     iosevka-term
