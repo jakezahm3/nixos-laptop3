@@ -51,7 +51,6 @@ return {
         documentation = {
           auto_show = false,
         },
-         completion = {
             menu = {
                 draw = {
                     -- We don't need label_description now because label and label_description are already
@@ -70,7 +69,6 @@ return {
                 },
             },
         },
-      },
 
       cmdline = {
         keymap = { preset = "inherit" },
