@@ -284,7 +284,7 @@ in {
     installVimSyntax = true;
     settings = {
       font-size = 14;
-      font = "IosevkaTerm Nerd Font";
+      font-family = "IosevkaTerm Nerd Font";
       theme = "noctalia";
     };
   };
