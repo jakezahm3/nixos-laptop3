@@ -21,7 +21,7 @@ return {
   },
   -- NvChad's blink spec has to come before ours: its `opts` is a function that
   -- replaces whatever was merged before it, so our opts must layer on top of it.
-  -- { import = "nvchad.blink.lazyspec" },
+  { import = "nvchad.blink.lazyspec" },
   {
     "saghen/blink.cmp",
     dependencies = {
