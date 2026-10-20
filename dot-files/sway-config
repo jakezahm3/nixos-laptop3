@@ -16,4 +16,6 @@ bindsym --locked XF86MonBrightnessDown exec $ipc brightness-down
 
 
 
+
+
 include ~/.config/sway/noctalia

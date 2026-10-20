@@ -129,6 +129,7 @@ in {
   };
 
   home.packages = [
+    pkgs.python314Packages.pillow
     pkgs.cargo
     pkgs.rustc
     pkgs.shotman
