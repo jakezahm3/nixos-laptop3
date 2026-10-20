@@ -415,7 +415,6 @@ in {
     enableGitIntegration = true;
     nix-direnv = {
       enable = true;
-      enableFlakes = true;
     };
   };
 
