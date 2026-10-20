@@ -396,7 +396,7 @@ in {
   services.blueman-applet.enable = true;
   services.clipmenu.enable = true;
   services.elephant.enable = true;
-  tailscale-systray.enable = true;
+  services.tailscale.systray.enable = true;
   services.ssh-agent.enable = true;
   services.spotifyd.enable = true;
   services.podman = {
