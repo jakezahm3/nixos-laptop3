@@ -12,6 +12,41 @@ in {
   nixpkgs.overlays = [
     (final: prev: {
       nvchad = inputs.nix4nvchad.packages.${system}.default.override {
+        programs.nvchad = {
+          enable = true;
+          # ~/.config/nvim is linked from dot-files/nvim above; don't let
+          # nix4nvchad delete and re-copy it on every switch.
+          hm-activation = false;
+          neovim = pkgs.wrapNeovim pkgs.neovim-unwrapped {
+            withNodeJs = true;
+            withPython3 = true;
+          };
+          extraPackages = with pkgs; [
+            ripgrep
+            lua-language-server
+            stylua
+            bash-language-server
+            ast-grep
+            yaml-language-server
+            prettierd
+            spectral-language-server
+            vscode-langservers-extracted
+            git
+            curl
+            shfmt
+            jq
+            uv
+            google-java-format
+            python3
+            python3Packages.pynvim
+            neovim-node-client
+            fish-lsp
+            texlab
+            tex-fmt
+            swaybg
+            luau-lsp
+          ];
+        };
         # Custom configuration goes here
       };
     })
