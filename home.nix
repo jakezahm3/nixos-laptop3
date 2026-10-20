@@ -263,21 +263,6 @@ in {
     settings = ./dot-files/umbriel.toml;
   };
 
-  services.transmission = {
-    enable = true;
-    package = pkgs.transmission_4; # Uses Transmission v4
-    settings = {
-      download-dir = "${config.home.homeDirectory}/Downloads/Torrents";
-      incomplete-dir = "${config.home.homeDirectory}/Downloads/Torrents/.incomplete";
-      incomplete-dir-enabled = true;
-      rpc-enabled = true;
-      rpc-bind-address = "127.0.0.1";
-      rpc-port = 9091;
-      rpc-whitelist-enabled = true;
-      rpc-whitelist = "127.0.0.1";
-    };
-  };
-
   programs.git = {
     enable = true;
     settings = {
