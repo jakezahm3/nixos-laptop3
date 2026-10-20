@@ -378,6 +378,7 @@ in {
 
   programs.mpv = {
     enable = true;
+    scripts = [pkgs.mpvScripts.mpris];
   };
 
   home.sessionVariables = {
