@@ -19,6 +19,9 @@ return {
       require("colorful-menu").setup({})
     end,
   },
+  -- NvChad's blink spec has to come before ours: its `opts` is a function that
+  -- replaces whatever was merged before it, so our opts must layer on top of it.
+  -- { import = "nvchad.blink.lazyspec" },
   {
     "saghen/blink.cmp",
     dependencies = {
@@ -92,7 +95,8 @@ return {
             module = "blink-cmp-env",
             --- @type blink-cmp-env.Options
             opts = {
-              item_kind = require("blink.cmp.types").CompletionItemKind.Variable,
+              -- item_kind defaults to CompletionItemKind.Variable; requiring blink.cmp.types
+              -- here fails because this file is evaluated before blink.cmp is on the rtp
               show_braces = false,
               show_documentation_window = true,
             },
@@ -549,8 +553,6 @@ return {
       },
     },
   },
-
-  { import = "nvchad.blink.lazyspec" },
 
   {
     "nvim-treesitter/nvim-treesitter",
