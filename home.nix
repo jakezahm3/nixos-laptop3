@@ -234,6 +234,8 @@ in {
     pkgs.ungoogled-chromium
     pkgs.pywalfox-native
     pkgs.tmuxp
+    pkgs.yt-dlp
+    pkgs.xdg-open
     (pkgs.mailspring.overrideAttrs (oldAttrs: {
       postFixup =
         (oldAttrs.postFixup or "")
