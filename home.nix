@@ -212,6 +212,7 @@ in {
     pkgs.pywalfox-native
     pkgs.tmuxp
     pkgs.yt-dlp
+    pkgs.psst
     (pkgs.mailspring.overrideAttrs (oldAttrs: {
       postFixup =
         (oldAttrs.postFixup or "")
