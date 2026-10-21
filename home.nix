@@ -378,7 +378,7 @@ in {
     settings = {
       global = {
         username = "zahm@crystal.harvard.edu";
-        password = config.sops.secrets.spoyify_pw.path;
+        password = config.sops.secrets.spotify_pw.path;
       };
     };
   };
