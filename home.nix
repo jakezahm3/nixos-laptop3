@@ -245,15 +245,136 @@ in {
     settings = ./dot-files/umbriel.toml;
   };
 
-   sops = {
-    # Encrypted file, safe to commit. Edit with `sops secrets/secrets.yaml`.
+  sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
-    # Decrypt with the host key. openssh is off, so sops-nix won't pick it up by default.
     age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
-    # Decrypted to /run/secrets/tailscale_key (root, 0400).
     secrets.spotify_pw = {};
   };
 
+  programs.spotify-player = {
+    enable = true;
+    theme = [
+      {
+        component_style = {
+          block_title = {
+            fg = "Magenta";
+          };
+          border = {};
+          current_playing = {
+            fg = "Green";
+            modifiers = [
+              "Bold"
+            ];
+          };
+          page_desc = {
+            fg = "Cyan";
+            modifiers = [
+              "Bold"
+            ];
+          };
+          playback_album = {
+            fg = "Yellow";
+          };
+          playback_artists = {
+            fg = "Cyan";
+            modifiers = [
+              "Bold"
+            ];
+          };
+          playback_metadata = {
+            fg = "BrightBlack";
+          };
+          playback_progress_bar = {
+            bg = "BrightBlack";
+            fg = "Green";
+          };
+          playback_track = {
+            fg = "Cyan";
+            modifiers = [
+              "Bold"
+            ];
+          };
+          selection = {
+            modifiers = [
+              "Bold"
+              "Reversed"
+            ];
+          };
+          table_header = {
+            fg = "Blue";
+          };
+        };
+        name = "default2";
+        palette = {
+          black = "black";
+          blue = "blue";
+          bright_black = "bright_black";
+          bright_blue = "bright_blue";
+          bright_cyan = "bright_cyan";
+          bright_green = "bright_green";
+          bright_magenta = "bright_magenta";
+          bright_red = "bright_red";
+          bright_white = "bright_white";
+          bright_yellow = "bright_yellow";
+          cyan = "cyan";
+          green = "green";
+          magenta = "magenta";
+          red = "red";
+          white = "white";
+          yellow = "yellow";
+        };
+      }
+    ];
+    keymaps = [
+      {
+        command = "NextTrack";
+        key_sequence = "g n";
+      }
+      {
+        command = "PreviousTrack";
+        key_sequence = "g p";
+      }
+      {
+        command = "Search";
+        key_sequence = "C-c C-x /";
+      }
+      {
+        command = "ResumePause";
+        key_sequence = "M-enter";
+      }
+      {
+        command = "None";
+        key_sequence = "q";
+      }
+    ];
+    actions = [
+      {
+        action = "GoToArtist";
+        key_sequence = "g A";
+      }
+      {
+        action = "GoToAlbum";
+        key_sequence = "g B";
+        target = "PlayingTrack";
+      }
+      {
+        action = "ToggleLiked";
+        key_sequence = "C-l";
+      }
+    ];
+    settings = {
+      copy_command = {
+        args = [];
+        command = "wl-copy";
+      };
+      device = {
+        audio_cache = false;
+        normalization = false;
+      };
+      playback_window_position = "Top";
+      theme = "default";
+    };
+  };
 
   programs.git = {
     enable = true;
