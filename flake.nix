@@ -53,6 +53,7 @@
             useUserPackages = true;
             backupFileExtension = "bak";
             overwriteBackup = true;
+            extraSpecialArgs = {inherit inputs;};
             users."jzahm" = import ./home.nix;
           };
         }
