@@ -66,6 +66,8 @@ in {
     "noctalia/plugins/custom-clock/translations/en.json".source = live "en.json";
   };
 
+  xdg.portal.xdgOpenUsePortal = true;
+
   home.file.".mcp.json".source = live "mcp-nixos.json";
 
   xdg.enable = true;
@@ -235,7 +237,6 @@ in {
     pkgs.pywalfox-native
     pkgs.tmuxp
     pkgs.yt-dlp
-    pkgs.xdg-open
     (pkgs.mailspring.overrideAttrs (oldAttrs: {
       postFixup =
         (oldAttrs.postFixup or "")
