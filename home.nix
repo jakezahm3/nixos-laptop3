@@ -354,11 +354,6 @@ in {
   # };
 
   programs.flake-edit.enable = true;
-  programs.poetry.enable = true;
-  programs.pyenv = {
-    enable = true;
-    enableFishIntegration = true;
-  };
 
   programs.bash = {
     enable = true;
@@ -425,12 +420,6 @@ in {
       "--selection-size-limit"
       "1048576"
     ];
-  };
-
-  services.walker = {
-    enable = true;
-    enableElephantIntegration = true;
-    systemd.enable = true;
   };
 
   home.sessionVariables = {
