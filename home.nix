@@ -134,21 +134,16 @@ in {
     pkgs.python314Packages.pillow
     pkgs.cargo
     pkgs.rustc
-    pkgs.shotman
     pkgs.virt-viewer
     pkgs.woeusb-ng
     pkgs.mullvad-compass
     pkgs.mullvad-browser
-    pkgs.zoom-us
     pkgs.libreoffice
     pkgs.remmina
-    pkgs.haskellPackages.amazonka-ec2-instance-connect
-    pkgs.python313Packages.ec2instanceconnectcli
     pkgs.babelfish
     pkgs.ethtool
     pkgs.go
     pkgs.talhelper
-    pkgs.pulumiPackages.pulumiverse-talos
     pkgs.gnumake
     pkgs.nmap
     pkgs.qemu
@@ -182,10 +177,8 @@ in {
     pkgs.speedtest-rs
     pkgs.stylua
     pkgs.nixfmt
-    pkgs.typesetter
     pkgs.tinymist
     pkgs.prettypst
-    pkgs.typst
     pkgs.gimp
     pkgs.imagemagick
     pkgs.ghostscript
@@ -210,9 +203,7 @@ in {
     pkgs.nil
     pkgs.micro-full
     pkgs.ripgrep
-    pkgs.trippy
     pkgs.sad
-    pkgs.diff-so-fancy
     pkgs.awscli2
     pkgs.jq
     pkgs.kdePackages.kcalc
@@ -235,10 +226,6 @@ in {
     allLocales = false;
     locales = ["en_US.UTF-8/UTF-8"];
   };
-
-  programs.wezterm.enable = true;
-  programs.opencode.enable = true;
-  programs.alacritty.enable = true;
 
   programs.umbriel = {
     enable = true;
@@ -446,17 +433,8 @@ in {
   services.podman = {
     enable = true;
   };
-  services.mpris-proxy.enable = true;
-  services.blanket.enable = true;
 
-  programs.direnv = {
-    enable = true;
-    enableFishIntegration = true;
-    enableGitIntegration = true;
-    nix-direnv = {
-      enable = true;
-    };
-  };
+  services.mpris-proxy.enable = true;
 
   services.wl-clip-persist = {
     enable = true;
