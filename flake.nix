@@ -51,8 +51,8 @@
             sharedModules = [sops-nix.homeManagerModules.sops];
             useGlobalPkgs = true;
             useUserPackages = true;
-            backupFileExtension = "FUCK";
-            extraSpecialArgs = {inherit inputs;};
+            backupFileExtension = "bak";
+            overwriteBackup = true;
             users."jzahm" = import ./home.nix;
           };
         }
