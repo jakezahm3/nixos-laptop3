@@ -144,8 +144,6 @@ in {
     pkgs.remmina
     pkgs.haskellPackages.amazonka-ec2-instance-connect
     pkgs.python313Packages.ec2instanceconnectcli
-    pkgs.kubernetes-helm
-    pkgs.helmsman
     pkgs.babelfish
     pkgs.ethtool
     pkgs.go
@@ -159,7 +157,6 @@ in {
     pkgs.nodejs
     pkgs.tealdeer
     pkgs.ghostty
-    pkgs.corepack_24
     pkgs.python3
     pkgs.wl-clipboard
     pkgs.claude-code
@@ -177,25 +174,21 @@ in {
     pkgs.lua-language-server
     pkgs.context7-mcp
     pkgs.mcp-proxy
-    pkgs.open-websearch
     pkgs.pdf-mcp
     pkgs.dhcpdump
     pkgs.nixd
     pkgs.gcc
     pkgs.traceroute
-    pkgs.inkscape
     pkgs.speedtest-rs
     pkgs.stylua
     pkgs.nixfmt
     pkgs.typesetter
-    pkgs.typstPackages.modern-cv
     pkgs.tinymist
     pkgs.prettypst
     pkgs.typst
     pkgs.gimp
     pkgs.imagemagick
     pkgs.ghostscript
-    pkgs.ueberzugpp
     pkgs.rust-analyzer
     pkgs.rustc
     pkgs.tectonic
@@ -215,24 +208,16 @@ in {
     pkgs.pyright
     pkgs.black
     pkgs.nil
-    pkgs.fresh-editor
     pkgs.micro-full
-    pkgs.bacon
     pkgs.ripgrep
     pkgs.trippy
     pkgs.sad
     pkgs.diff-so-fancy
     pkgs.awscli2
     pkgs.jq
-    pkgs.opentofu
-    pkgs.tofu-ls
-    pkgs.talosctl
-    pkgs.talos-pilot
-    pkgs.kubectl
     pkgs.kdePackages.kcalc
     pkgs.nix-search-tv
     pkgs.fzf
-    pkgs.ungoogled-chromium
     pkgs.pywalfox-native
     pkgs.tmuxp
     pkgs.yt-dlp
@@ -388,17 +373,22 @@ in {
   programs.fzf.enable = true;
   programs.ripgrep-all.enable = true;
 
+  services.spotifyd = {
+    enable = true;
+    settings = {
+      global = {
+        username = "zahm@crystal.harvard.edu";
+        password = config.sops.secrets.spoyify_pw.path;
+      };
+    };
+  };
 
   services.ssh-agent.enable = true;
-  services.spotifyd.enable = true;
   services.podman = {
     enable = true;
   };
   services.mpris-proxy.enable = true;
   services.blanket.enable = true;
-  services.autorandr.enable = true;
-
-  programs.cudatext.enable = true;
 
   programs.direnv = {
     enable = true;
