@@ -30,7 +30,6 @@ in {
           curl
           shfmt
           jq
-          uv
           google-java-format
           python3
           python3Packages.pynvim

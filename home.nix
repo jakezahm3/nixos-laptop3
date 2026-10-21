@@ -187,7 +187,6 @@ in {
     pkgs.speedtest-rs
     pkgs.stylua
     pkgs.nixfmt
-    pkgs.python313Packages.uv
     pkgs.typesetter
     pkgs.typstPackages.modern-cv
     pkgs.tinymist
@@ -255,7 +254,6 @@ in {
   programs.wezterm.enable = true;
   programs.opencode.enable = true;
   programs.alacritty.enable = true;
-  programs.uv.enable = true;
 
   programs.umbriel = {
     enable = true;
