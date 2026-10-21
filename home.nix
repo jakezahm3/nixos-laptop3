@@ -246,7 +246,6 @@ in {
   };
 
    sops = {
-    useSystemdActivation = true;
     # Encrypted file, safe to commit. Edit with `sops secrets/secrets.yaml`.
     defaultSopsFile = ./secrets/secrets.yaml;
     # Decrypt with the host key. openssh is off, so sops-nix won't pick it up by default.
