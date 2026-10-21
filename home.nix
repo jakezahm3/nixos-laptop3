@@ -245,6 +245,17 @@ in {
     settings = ./dot-files/umbriel.toml;
   };
 
+   sops = {
+    useSystemdActivation = true;
+    # Encrypted file, safe to commit. Edit with `sops secrets/secrets.yaml`.
+    defaultSopsFile = ./secrets/secrets.yaml;
+    # Decrypt with the host key. openssh is off, so sops-nix won't pick it up by default.
+    age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+    # Decrypted to /run/secrets/tailscale_key (root, 0400).
+    secrets.spotify_pw = {};
+  };
+
+
   programs.git = {
     enable = true;
     settings = {
