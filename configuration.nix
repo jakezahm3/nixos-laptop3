@@ -401,11 +401,6 @@ in {
     secrets.tailscale_key = {};
   };
 
-  services.transmission = {
-    enable = true;
-    user = "jzahm";
-  };
-
   zramSwap.enable = true;
   services.zram-generator.enable = true;
 
