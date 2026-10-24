@@ -359,6 +359,7 @@ in {
     pamixer
     bluez
     bluez-tools
+    inputs.claude-desktop.packages.${system}.claude-desktop
   ];
 
   fonts.packages = with pkgs.nerd-fonts; [
