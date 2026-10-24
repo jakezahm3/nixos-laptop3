@@ -158,7 +158,7 @@ in {
     pkgs.kitty
     pkgs.neovide
     pkgs.eyedropper
-    #pkgs.mcp-nixos
+    pkgs.mcp-nixos
     pkgs.toolhive
     pkgs.mcp-server-fetch
     pkgs.mcp-server-filesystem
@@ -168,7 +168,7 @@ in {
     pkgs.lua-language-server
     pkgs.context7-mcp
     pkgs.mcp-proxy
-    pkgs.pdf-mcp
+    #pkgs.pdf-mcp
     pkgs.dhcpdump
     pkgs.nixd
     pkgs.gcc
