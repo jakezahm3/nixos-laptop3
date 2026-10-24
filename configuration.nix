@@ -355,10 +355,10 @@ in {
     libsecret
     thunar
     gvfs
-    pavucontrol # PulseAudio Volume Control
-    pamixer # Command-line mixer for PulseAudio
-    bluez # Bluetooth support
-    bluez-tools # Bluetooth tools
+    pavucontrol
+    pamixer
+    bluez
+    bluez-tools
   ];
 
   fonts.packages = with pkgs.nerd-fonts; [
@@ -369,6 +369,8 @@ in {
 
   services.gvfs.enable = true;
   services.tumbler.enable = true;
+
+  programs.amnezia-vpn.enable = true;
 
   programs.thunar = {
     enable = true;
