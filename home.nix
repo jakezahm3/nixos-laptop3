@@ -213,6 +213,7 @@ in {
     pkgs.tmuxp
     pkgs.yt-dlp
     pkgs.psst
+    pkgs.speedtest-cli
     (pkgs.mailspring.overrideAttrs (oldAttrs: {
       postFixup =
         (oldAttrs.postFixup or "")
