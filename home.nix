@@ -158,17 +158,9 @@ in {
     pkgs.kitty
     pkgs.neovide
     pkgs.eyedropper
-    #pkgs.mcp-nixos
     pkgs.toolhive
-    pkgs.mcp-server-fetch
-    pkgs.mcp-server-filesystem
-    pkgs.mcp-language-server
-    pkgs.mcp-server-time
     pkgs.dnsutils
     pkgs.lua-language-server
-    pkgs.context7-mcp
-    pkgs.mcp-proxy
-    #pkgs.pdf-mcp
     pkgs.dhcpdump
     pkgs.nixd
     pkgs.gcc
