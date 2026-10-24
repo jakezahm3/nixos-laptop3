@@ -158,8 +158,7 @@ in {
     pkgs.kitty
     pkgs.neovide
     pkgs.eyedropper
-    pkgs.mcp-nixos
-    pkgs.python313Packages.pip
+    #pkgs.mcp-nixos
     pkgs.toolhive
     pkgs.mcp-server-fetch
     pkgs.mcp-server-filesystem
