@@ -119,12 +119,13 @@ enabled = false
 
 # Applications and session
 "Mod+Return" = { action = "spawn:ghostty", repeat = false }
+"Mod+Y" = { action = "spawn:yazi", repeat = false }
 "Mod" = "spawn:noctalia msg panel-toggle launcher"
 "Mod+Q" = { action = "window-close", repeat = false }
 "Mod+Escape" = "session-quit"
 "Mod+Shift+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
 "Mod+Shift+Slash" = "cheatsheet-toggle"
-"Mod+B" = { action = "spawn:firefox", repeat = false } 
+"Mod+B" = { action = "spawn:firefox", repeat = false }
 
 # Focus and movement
 "Mod+Left" = "window-focus-left"
