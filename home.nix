@@ -225,6 +225,9 @@ in {
     settings = ./dot-files/umbriel.toml;
   };
 
+  programs.qualculate.enable = true;
+  programs.poetry.enable = true;
+
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
     age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
