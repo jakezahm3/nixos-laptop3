@@ -371,6 +371,8 @@ in {
   ];
 
   services.spotifyd.enable = true;
+  services.flatpak.enable = true;
+
 
   programs.wireshark = {
     enable = true;
