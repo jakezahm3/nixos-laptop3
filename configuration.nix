@@ -366,7 +366,11 @@ in {
     arch-install-scripts
     tomb
     cryptsetup
+    spotify-player
+    spotify-qt
   ];
+
+  services.spotifyd.enable = true;
 
   programs.wireshark = {
     enable = true;

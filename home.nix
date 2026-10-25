@@ -231,59 +231,6 @@ in {
     secrets.spotify_pw = {};
   };
 
-  programs.spotify-player = {
-    enable = true;
-    keymaps = [
-      {
-        command = "NextTrack";
-        key_sequence = "g n";
-      }
-      {
-        command = "PreviousTrack";
-        key_sequence = "g p";
-      }
-      {
-        command = "Search";
-        key_sequence = "C-c C-x /";
-      }
-      {
-        command = "ResumePause";
-        key_sequence = "M-enter";
-      }
-      {
-        command = "None";
-        key_sequence = "q";
-      }
-    ];
-    actions = [
-      {
-        action = "GoToArtist";
-        key_sequence = "g A";
-      }
-      {
-        action = "GoToAlbum";
-        key_sequence = "g B";
-        target = "PlayingTrack";
-      }
-      {
-        action = "ToggleLiked";
-        key_sequence = "C-l";
-      }
-    ];
-    settings = {
-      copy_command = {
-        args = [];
-        command = "wl-copy";
-      };
-      device = {
-        audio_cache = false;
-        normalization = false;
-      };
-      playback_window_position = "Top";
-      theme = "default";
-    };
-  };
-
   programs.git = {
     enable = true;
     settings = {
