@@ -365,6 +365,7 @@ in {
     btrfs-progs
     arch-install-scripts
     tomb
+    cryptsetup
   ];
 
   programs.wireshark = {
