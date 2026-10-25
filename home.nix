@@ -227,6 +227,7 @@ in {
 
   programs.qalculate.enable = true;
   programs.poetry.enable = true;
+  programs.stylua.enable = true;
 
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
