@@ -282,6 +282,8 @@ in {
   security.pam.services.greetd.enableGnomeKeyring = true;
   security.pam.services.login.enableGnomeKeyring = true;
 
+  programs.google-chrome.enable = true;
+
   services.tailscale = {
     enable = true;
     # Only used to log in when the node isn't already authenticated.
