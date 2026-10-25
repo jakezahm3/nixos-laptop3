@@ -361,6 +361,7 @@ in {
     pamixer
     bluez
     bluez-tools
+    gptfdisk
   ];
 
   programs.wireshark = {
