@@ -363,6 +363,7 @@ in {
     bluez-tools
     gptfdisk
     btrfs-progs
+    arch-install-scripts
   ];
 
   programs.wireshark = {
