@@ -362,6 +362,7 @@ in {
     bluez
     bluez-tools
     gptfdisk
+    btrfs-progs
   ];
 
   programs.wireshark = {
