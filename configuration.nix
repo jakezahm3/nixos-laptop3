@@ -372,7 +372,7 @@ in {
 
   services.spotifyd.enable = true;
   services.flatpak.enable = true;
-
+  services.nixosManual.enable = true;
 
   programs.wireshark = {
     enable = true;
