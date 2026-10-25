@@ -364,6 +364,7 @@ in {
     gptfdisk
     btrfs-progs
     arch-install-scripts
+    tomb
   ];
 
   programs.wireshark = {
