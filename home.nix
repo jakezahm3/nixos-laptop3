@@ -225,7 +225,7 @@ in {
     settings = ./dot-files/umbriel.toml;
   };
 
-  programs.qualculate.enable = true;
+  programs.qalculate.enable = true;
   programs.poetry.enable = true;
 
   sops = {
