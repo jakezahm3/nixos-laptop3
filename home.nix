@@ -270,6 +270,11 @@ in {
     pandoc.enable = true;
   };
 
+  services = {
+    librespot.enable = true;
+    podman.enable = true;
+  };
+
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
     age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
