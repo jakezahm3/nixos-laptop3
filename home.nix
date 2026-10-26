@@ -225,9 +225,51 @@ in {
     settings = ./dot-files/umbriel.toml;
   };
 
-  programs.qalculate.enable = true;
-  programs.poetry.enable = true;
-  programs.stylua.enable = true;
+  programs = {
+    qalculate.enable = true;
+    poetry.enable = true;
+    stylua.enable = true;
+    joplin-desktop.enable = true;
+    mcp.enable = true;
+    vivaldi.enable = true;
+    aerc.enable = true;
+    amp.enable = true;
+    antigravity.enable = true;
+    nix-your-shell.enable = true;
+    chawan.enable = true;
+    claude-code.enable = true;
+    eww.enable = true;
+    eza.enable = true;
+    fresh-editor.enable = true;
+    freetube.enable = true;
+    foliate.enable = true;
+    gram.enable = true;
+    gitui.enable = true;
+    gallery-dl.enable = true;
+    havoc.enable = true;
+    inori.enable = true;
+    kiro.enable = true;
+    lsd.enable = true;
+    lapce.enable = true;
+    lesspipe.enable = true;
+    npm.enable = true;
+    positron.enable = true;
+    posting.enable= true;
+    radio-active.enable = true;
+    rio.enable = true;
+    rmpc.enable = true;
+    rtorrent.enable = true;
+    sagemath.enable = true;
+    vivid.enable = true;
+    nix-index.enable = true;
+    nyxt.enable = true;
+    neomutt.enable = true;
+    numbat.enable = true;
+    nushell.enable = true;
+    ncspot.enable = true;
+    onedrive.enable = true;
+    pandoc.enable = true;
+  };
 
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
