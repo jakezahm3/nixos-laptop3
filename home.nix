@@ -272,7 +272,6 @@ in {
 
   services = {
     librespot.enable = true;
-    podman.enable = true;
   };
 
   sops = {
