@@ -249,7 +249,6 @@ in {
     havoc.enable = true;
     inori.enable = true;
     kiro.enable = true;
-    lsd.enable = true;
     lapce.enable = true;
     lesspipe.enable = true;
     npm.enable = true;
