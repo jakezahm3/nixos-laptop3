@@ -259,7 +259,6 @@ in {
     rmpc.enable = true;
     rtorrent.enable = true;
     sagemath.enable = true;
-    vivid.enable = true;
     nix-index.enable = true;
     nyxt.enable = true;
     neomutt.enable = true;
