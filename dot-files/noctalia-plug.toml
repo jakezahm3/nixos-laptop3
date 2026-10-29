@@ -1,5 +1,0 @@
-[plugins]
-enabled = ["prponkshe/umbriel-displays"]
-
-[plugin_settings."prponkshe/umbriel-displays"]
-outputs_path = "~/.config/umbriel/outputs.toml"   # the default; change to move the file

@@ -57,7 +57,7 @@ in {
     "sway/config".source = live "sway-config";
     "greeter.toml".source = live "greeter.toml";
     "noctalia/user-templates.toml".source = live "user-templates.toml";
-    "noctalia/noctalia-full-config.toml".source = live "noctalia-full-config.toml";
+    "noctalia/noctalia-config.toml".source = live "noctalia-config.toml";
   };
 
   xdg.dataFile = {

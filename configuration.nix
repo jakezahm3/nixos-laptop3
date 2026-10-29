@@ -14,6 +14,7 @@ in {
     ./hardware-configuration.nix
     inputs.noctalia.nixosModules.default
     inputs.umbriel.nixosModules.default
+    inputs.nixvim.nixosModules.nixvim
   ];
 
   networking.wireguard.enable = true;
@@ -384,6 +385,11 @@ in {
     age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
     # Decrypted to /run/secrets/tailscale_key (root, 0400).
     secrets.tailscale_key = {};
+  };
+
+  programs.nixvim = {
+    enable = true;
+    imports = [./nixvim.nix];
   };
 
   zramSwap.enable = true;
