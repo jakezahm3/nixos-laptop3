@@ -321,7 +321,6 @@ in {
     enable = true;
     shellAliases = {
       # Evaluates and builds as jzahm, then uses sudo only to activate.
-      nrs = "nixos-rebuild switch --sudo --flake ${flakeDir}#nixos";
       gp = "git add -A && sleep 1 && git commit -m (uuidgen)";
       se = "sudo -E";
       snv = "sudo -E nvim";
