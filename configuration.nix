@@ -389,7 +389,6 @@ in {
 
   programs.nixvim = {
     enable = true;
-    imports = [./nixvim.nix];
   };
 
   zramSwap.enable = true;
