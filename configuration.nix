@@ -9,43 +9,7 @@
 }: let
   system = pkgs.stdenv.hostPlatform.system;
 in {
-  nixpkgs.overlays = [
-    (final: prev: {
-      nvchad = inputs.nix4nvchad.packages.${system}.default.override {
-        neovim = pkgs.wrapNeovim pkgs.neovim-unwrapped {
-          withNodeJs = true;
-          withPython3 = true;
-        };
-        extraPackages = with pkgs; [
-          ripgrep
-          lua-language-server
-          stylua
-          bash-language-server
-          ast-grep
-          yaml-language-server
-          prettierd
-          spectral-language-server
-          vscode-langservers-extracted
-          git
-          curl
-          shfmt
-          jq
-          google-java-format
-          python3
-          python3Packages.pynvim
-          neovim-node-client
-          fish-lsp
-          texlab
-          tex-fmt
-          swaybg
-          luau-lsp
-          nil
-          nixd
-          alejandra
-        ];
-      };
-    })
-  ];
+
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -327,7 +291,6 @@ in {
     wireguard-ui
     wireguard-tools
     conda
-    nvchad
     flake-checker
     nixtract
     vim
