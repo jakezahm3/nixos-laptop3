@@ -9,7 +9,6 @@
 }: let
   system = pkgs.stdenv.hostPlatform.system;
 in {
-
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -35,8 +34,11 @@ in {
   };
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];
-    extra-substituters = ["https://noctalia.cachix.org"];
-    extra-trusted-public-keys = ["noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="];
+    extra-substituters = ["https://noctalia.cachix.org" "https://umbriel.cachix.org"];
+    extra-trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+      "umbriel.cachix.org-1:JfNq/2yg2S6D6z4Z2dVSZrZlDPQTKtexB6GAVLD98nw="
+    ];
   };
 
   networking.hostName = "nixos"; # Define your hostname.
