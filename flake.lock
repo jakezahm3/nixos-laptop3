@@ -23,8 +23,8 @@
     "my-nvchad-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1792478253,
-        "narHash": "sha256-Xyte4oYKM+ZS/m/6+x3r5NSzdGcHyZP7D5p91Jcr6pw=",
+        "lastModified": 1793231152,
+        "narHash": "sha256-hQiGa6BgFMgggMtK5KotFL1nIGY8oDBlVURiNiRXCEw=",
         "path": "/home/jzahm/nixos/dot-files/nvim",
         "type": "path"
       },
@@ -103,11 +103,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1793219310,
-        "narHash": "sha256-ZoYNSHi1Do0npDZB++MLmIlGJNfoXuSOUUwgLBEXPh0=",
+        "lastModified": 1793239480,
+        "narHash": "sha256-A4kvKDRsOW2zdLCHjRwJgzOKrpOg9XJgxsDdKG2jr90=",
         "owner": "noctalia-dev",
         "repo": "noctalia",
-        "rev": "dda882752f4f406e714658fee7bba368fbdae684",
+        "rev": "e4390429240b7c761c948289a87463ff9d5b18c4",
         "type": "github"
       },
       "original": {
@@ -153,11 +153,11 @@
         "xdg-desktop-portal-umbriel": "xdg-desktop-portal-umbriel"
       },
       "locked": {
-        "lastModified": 1793207071,
-        "narHash": "sha256-grxAvXO2215VpVlMzEQ9TzpeMeQpP8EAOqj1WqC5qNU=",
+        "lastModified": 1793241153,
+        "narHash": "sha256-aToX2COJlNSzoaCEVPzoT/fH71Kvw3x0m/gd17hkrO0=",
         "ref": "refs/heads/main",
-        "rev": "2958d582953a9eb623d945f50ffd5cc1a921ee18",
-        "revCount": 1422,
+        "rev": "8df1a189aa0d448207157e0d3b73bc99d40ac486",
+        "revCount": 1424,
         "type": "git",
         "url": "https://github.com/noctalia-dev/umbriel"
       },
