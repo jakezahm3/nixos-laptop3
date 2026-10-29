@@ -8,9 +8,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
-      url = "github:noctalia-dev/noctalia";
+      url = "github:noctalia-dev/noctalia/cachix";
     };
-    umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
+    umbriel= {
+      url = "github:noctalia-dev/umbriel/cachix";
+    };
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
