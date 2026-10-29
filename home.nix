@@ -105,7 +105,7 @@ in {
 
   programs.noctalia = {
     enable = true;
-    settings = ./dot-files/noctalia.toml;
+    settings = ./dot-files/noctalia-config.toml;
   };
 
   editorconfig = {
