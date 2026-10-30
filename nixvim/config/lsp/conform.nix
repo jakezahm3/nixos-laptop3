@@ -103,17 +103,8 @@
             "isort"
           ];
           lua = [ "stylua" ];
-          nix = [ "nixfmt-rfc-style" ];
-          markdown = {
-            __unkeyed-1 = "prettierd";
-            __unkeyed-2 = "prettier";
-            stop_after_first = true;
-          };
-          yaml = {
-            __unkeyed-1 = "prettierd";
-            __unkeyed-2 = "prettier";
-            stop_after_first = true;
-          };
+          nix = [ "alejandra" ];
+          yaml = [ "prettierd" ];
           terraform = [ "terraform_fmt" ];
           bicep = [ "bicep" ];
           bash = [
