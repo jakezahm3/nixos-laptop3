@@ -48,6 +48,7 @@ in {
   ];
 
   xdg.configFile = {
+    "Code/User/settings.json".source = live "settings.json";
     "nvim".source = live "nvim";
     "ghostty/config.ghostty".source = live "config.ghostty";
     "helix/config.toml".source = live "config.toml";
@@ -321,6 +322,8 @@ in {
       };
     };
   };
+
+  profiles.default.extensions = [pkgs.vscode-extensions.jnoortheen.nix-ide];
 
   services.ssh-agent.enable = true;
 
