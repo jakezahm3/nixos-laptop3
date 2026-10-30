@@ -1,7 +1,7 @@
 {lib, ...}: {
   imports = [./plugins];
 
-  colorschemes.oxocarbon = {
+  colorschemes.dracula = {
     enable = true;
     #colorscheme = "nord";
   };
