@@ -202,6 +202,10 @@ in {
     rmpc.enable = true;
     onedrive.enable = true;
     pandoc.enable = true;
+    vscode = {
+      enable = true;
+      package = pkgs.vscode-with-extensions;
+    };
   };
 
   sops = {
