@@ -1,5 +1,5 @@
 {lib, ...}: {
-  import = [./plugins];
+  imports = [./plugins];
 
   colorschemes.moonfly = {
     enable = true;
