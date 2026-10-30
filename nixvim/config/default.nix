@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./flash.nix
     ./lastplace.nix
     ./dashboard.nix
     ./rainbow-delimiters.nix
