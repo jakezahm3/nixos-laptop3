@@ -204,7 +204,10 @@ in {
     pandoc.enable = true;
     vscode = {
       enable = true;
-      package = pkgs.vscode-with-extensions;
+      # XDG_CURRENT_DESKTOP=umbriel isn't recognized, so name the keyring backend.
+      package = pkgs.vscode.override {
+        commandLineArgs = "--password-store=gnome-libsecret";
+      };
     };
   };
 
