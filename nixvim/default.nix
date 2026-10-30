@@ -1,5 +1,5 @@
 {lib, ...}: {
-  imports = [./plugins];
+  imports = [./config];
 
   colorschemes.ayu = {
     enable = true;
