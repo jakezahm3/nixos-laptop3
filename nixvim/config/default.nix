@@ -1,6 +1,10 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
+    ./lastplace.nix
     ./dashboard.nix
     ./rainbow-delimiters.nix
     ./crates.nix
@@ -78,7 +82,6 @@
       asm-lsp # Assembly LSP
       delve # Go debugger
       gcc
-
     ];
   };
 }

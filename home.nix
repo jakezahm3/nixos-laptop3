@@ -297,7 +297,9 @@ in {
     enable = true;
     shellAliases = {
       # Evaluates and builds as jzahm, then uses sudo only to activate.
-      gp = "git add -A && sleep 1 && git commit -m (uuidgen)";
+      ga = "git add -A";
+      gc = "git commit -m '$(uuidgen)'";
+      gp = "git push -u origin main";
       se = "sudo -E";
       snv = "sudo -E nvim";
       hh = "cd /home/jzahm/nixos";
