@@ -1,6 +1,6 @@
 {
   plugins = {
-    dashboard-nvim = {
+    dashboard = {
       enable = true;
     };
   };
