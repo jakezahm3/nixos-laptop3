@@ -1,7 +1,7 @@
 {lib, ...}: {
   imports = [./plugins];
 
-  colorschemes.dracula = {
+  colorschemes.ayu = {
     enable = true;
     #colorscheme = "nord";
   };
