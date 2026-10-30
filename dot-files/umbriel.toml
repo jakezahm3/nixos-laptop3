@@ -162,6 +162,21 @@ enabled = false
 "Mod+WheelDown" = "window-focus-right"
 "Mod+O" = { action = "overview-toggle", repeat = false }
 
+# Resize: primary extent is width in the scrolling layout, secondary is height.
+"Mod+Minus" = "window-modify-primary-extent -0.05"
+"Mod+Equal" = "window-modify-primary-extent 0.05"
+"Mod+Shift+Minus" = "window-modify-secondary-extent -0.05"
+"Mod+Shift+Equal" = "window-modify-secondary-extent 0.05"
+
+# Workspace layout
+"Mod+Alt+S" = { action = "workspace-set-layout scrolling", repeat = false }
+"Mod+Alt+D" = { action = "workspace-set-layout dwindle", repeat = false }
+"Mod+Alt+M" = { action = "workspace-set-layout master", repeat = false }
+"Mod+Alt+Space" = { action = "workspace-set-layout toggle scrolling dwindle master", repeat = false }
+"Mod+Alt+T" = { action = "layout-toggle-split", repeat = false }
+"Mod+Alt+Equal" = "layout-master-count-increase"
+"Mod+Alt+Minus" = "layout-master-count-decrease"
+
 # Workspaces
 "Mod+1" = "workspace-switch 1"
 "Mod+2" = "workspace-switch 2"
