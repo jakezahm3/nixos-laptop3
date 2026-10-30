@@ -108,28 +108,6 @@ in {
     settings = ./dot-files/noctalia-config.toml;
   };
 
-  editorconfig = {
-    enable = true;
-    settings = {
-      "*" = {
-        charset = "utf-8";
-        end_of_line = "lf";
-        trim_trailing_whitespace = true;
-        insert_final_newline = true;
-        indent_style = "space";
-        indent_size = 2;
-      };
-
-      "*.md" = {
-        trim_trailing_whitespace = false;
-      };
-
-      "*.{py,sh}" = {
-        indent_size = 4;
-      };
-    };
-  };
-
   home.packages = [
     pkgs.python314Packages.pillow
     pkgs.cargo
@@ -138,15 +116,11 @@ in {
     pkgs.woeusb-ng
     pkgs.mullvad-compass
     pkgs.mullvad-browser
-    pkgs.libreoffice
-    pkgs.remmina
     pkgs.babelfish
     pkgs.ethtool
     pkgs.go
-    pkgs.talhelper
     pkgs.gnumake
     pkgs.nmap
-    pkgs.qemu
     pkgs.yazi
     pkgs.fish
     pkgs.nodejs
@@ -157,18 +131,14 @@ in {
     pkgs.claude-code
     pkgs.neovide
     pkgs.eyedropper
-    pkgs.toolhive
     pkgs.dnsutils
     pkgs.lua-language-server
-    pkgs.dhcpdump
     pkgs.nixd
     pkgs.gcc
     pkgs.traceroute
     pkgs.speedtest-rs
     pkgs.stylua
     pkgs.nixfmt
-    pkgs.tinymist
-    pkgs.prettypst
     pkgs.gimp
     pkgs.imagemagick
     pkgs.ghostscript
@@ -184,19 +154,14 @@ in {
     pkgs.black
     pkgs.terraform-lsp
     pkgs.zathura
-    pkgs.bibtex-tidy
-    pkgs.xdotool
     pkgs.texliveFull
-    pkgs.pstree
     pkgs.pyright
     pkgs.black
     pkgs.nil
     pkgs.micro-full
     pkgs.ripgrep
-    pkgs.sad
     pkgs.awscli2
     pkgs.jq
-    pkgs.kdePackages.kcalc
     pkgs.nix-search-tv
     pkgs.fzf
     pkgs.pywalfox-native
@@ -226,27 +191,17 @@ in {
 
   programs = {
     qalculate.enable = true;
-    poetry.enable = true;
     stylua.enable = true;
     vivaldi.enable = true;
-    aerc.enable = true;
     nix-your-shell.enable = true;
     claude-code.enable = true;
-    eww.enable = true;
-    fresh-editor.enable = true;
     freetube.enable = true;
     gram.enable = true;
-    gitui.enable = true;
     kiro.enable = true;
     npm.enable = true;
-    rio.enable = true;
     rmpc.enable = true;
     onedrive.enable = true;
     pandoc.enable = true;
-  };
-
-  services = {
-    librespot.enable = true;
   };
 
   sops = {
@@ -361,25 +316,8 @@ in {
   };
 
   services.ssh-agent.enable = true;
-  services.podman = {
-    enable = true;
-  };
 
   services.mpris-proxy.enable = true;
-
-  services.wl-clip-persist = {
-    enable = true;
-    clipboardType = "both";
-    extraOptions = [
-      "--write-timeout"
-      "1000"
-      "--ignore-event-on-error"
-      "--all-mime-type-regex"
-      "'(?i)^(?!image/).+'"
-      "--selection-size-limit"
-      "1048576"
-    ];
-  };
 
   home.sessionVariables = {
     EDITOR = "nvim";

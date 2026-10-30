@@ -65,13 +65,6 @@ in {
     enableSSHSupport = true; # Optional: use GPG-agent for SSH keys
   };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  #networking.networkmanager.enable = true;
-
   # Set your time zone.
   time = {
     timeZone = "America/New_York";
@@ -80,19 +73,12 @@ in {
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  #services.xserver.enable = true;
-
   environment.sessionVariables = {
     LC_ALL = "en_US.UTF-8";
   };
 
-  # Enable the KDE Plasma Desktop Environment.
   #services.displayManager.gdm.enable =  true;
   #services.desktopManager.budgie.enable = true;
-
-  programs.umbriel.enable = true;
 
   xdg.portal = {
     enable = true;
@@ -230,12 +216,9 @@ in {
     "root".shell = pkgs.bash;
   };
 
-  # Install firefox.
   programs.firefox.enable = true;
-
   programs.fish.enable = true;
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   programs.noctalia = {
@@ -253,7 +236,6 @@ in {
 
   services.tailscale = {
     enable = true;
-    # Only used to log in when the node isn't already authenticated.
     authKeyFile = config.sops.secrets.tailscale_key.path;
     extraUpFlags = ["--ssh" "--accept-routes" "--accept-dns"];
   };
@@ -296,17 +278,14 @@ in {
     wireguard-tools
     conda
     flake-checker
-    nixtract
     vim
     wget
     virtiofsd
     git
     qbittorrent
-    virtiofsd
     xclip
     xwayland-satellite
     tmux
-    wlroots
     wlr-randr
     htop
     python314Packages.numpy
@@ -333,13 +312,7 @@ in {
     arch-install-scripts
     tomb
     cryptsetup
-    spotify-player
-    spotify-qt
   ];
-
-  services.spotifyd.enable = true;
-  services.flatpak.enable = true;
-  services.nixosManual.enable = true;
 
   programs.wireshark = {
     enable = true;
@@ -380,18 +353,14 @@ in {
 
   sops = {
     useSystemdActivation = true;
-    # Encrypted file, safe to commit. Edit with `sops secrets/secrets.yaml`.
     defaultSopsFile = ./secrets/secrets.yaml;
-    # Decrypt with the host key. openssh is off, so sops-nix won't pick it up by default.
     age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
-    # Decrypted to /run/secrets/tailscale_key (root, 0400).
     secrets.tailscale_key = {};
   };
 
   programs.nixvim = {
     enable = true;
-    imports = [ ./nixvim/default.nix ];
-    # Nixvim builds its own nixpkgs instance, so the system allowUnfree doesn't apply here.
+    imports = [./nixvim/default.nix];
     nixpkgs.config.allowUnfree = true;
   };
 
