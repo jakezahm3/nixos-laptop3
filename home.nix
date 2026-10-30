@@ -209,6 +209,7 @@ in {
       package = pkgs.vscode.override {
         commandLineArgs = "--password-store=gnome-libsecret";
       };
+      profiles.default.extensions = [pkgs.vscode-extensions.jnoortheen.nix-ide];
     };
   };
 
@@ -322,8 +323,6 @@ in {
       };
     };
   };
-
-  profiles.default.extensions = [pkgs.vscode-extensions.jnoortheen.nix-ide];
 
   services.ssh-agent.enable = true;
 
