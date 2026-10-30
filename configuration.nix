@@ -34,8 +34,14 @@ in {
     '';
   };
   nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
-    extra-substituters = ["https://noctalia.cachix.org" "https://umbriel.cachix.org"];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    extra-substituters = [
+      "https://noctalia.cachix.org"
+      "https://umbriel.cachix.org"
+    ];
     extra-trusted-public-keys = [
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       "umbriel.cachix.org-1:JfNq/2yg2S6D6z4Z2dVSZrZlDPQTKtexB6GAVLD98nw="
@@ -86,6 +92,7 @@ in {
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
+  programs.umbriel.enable = true;
   services.displayManager = {
     enable = true;
     defaultSession = "umbriel";
@@ -207,7 +214,11 @@ in {
       linger = true;
       homeMode = "755";
       description = "Jacob Zahm";
-      extraGroups = ["networkmanager" "wheel" "audio"];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "audio"
+      ];
       shell = pkgs.fish;
       packages = with pkgs; [
         kdePackages.kate
@@ -237,7 +248,11 @@ in {
   services.tailscale = {
     enable = true;
     authKeyFile = config.sops.secrets.tailscale_key.path;
-    extraUpFlags = ["--ssh" "--accept-routes" "--accept-dns"];
+    extraUpFlags = [
+      "--ssh"
+      "--accept-routes"
+      "--accept-dns"
+    ];
   };
 
   networking.nftables.enable = true;
