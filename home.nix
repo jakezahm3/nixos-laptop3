@@ -231,7 +231,7 @@ in {
     stylua.enable = true;
     vivaldi.enable = true;
     aerc.enable = true;
-    antigravity-ide.enable = true;
+    antigravity.enable = true;
     nix-your-shell.enable = true;
     claude-code.enable = true;
     eww.enable = true;
