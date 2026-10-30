@@ -40,6 +40,23 @@
           bang = true,
         })
       '';
+    # Same flags as :FormatToggle, as Snacks toggles so which-key shows the state
+    extraConfigLua =
+      # lua
+      ''
+        Snacks.toggle.new({
+          id = "autoformat",
+          name = "Autoformat (global)",
+          get = function() return not vim.g.disable_autoformat end,
+          set = function(state) vim.g.disable_autoformat = not state end,
+        }):map("<leader>uf")
+        Snacks.toggle.new({
+          id = "autoformat_buffer",
+          name = "Autoformat (buffer)",
+          get = function() return not vim.b.disable_autoformat end,
+          set = function(state) vim.b.disable_autoformat = not state end,
+        }):map("<leader>uF")
+      '';
     plugins.conform-nvim = {
       enable = true;
       settings = {

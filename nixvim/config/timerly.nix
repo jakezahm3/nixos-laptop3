@@ -13,4 +13,12 @@
       ];
     };
   };
+  keymaps = [
+    {
+      key = "<leader>ut";
+      mode = [ "n" ];
+      action = "<cmd>TimerlyToggle<CR>";
+      options.desc = "Timer";
+    }
+  ];
 }

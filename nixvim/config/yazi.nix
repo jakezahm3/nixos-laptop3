@@ -16,6 +16,7 @@
       key = "<leader>fm";
       mode = [ "n" ];
       action = "<cmd>Yazi<CR>";
+      options.desc = "Yazi file manager";
     }
   ];
 }

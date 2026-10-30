@@ -9,6 +9,7 @@
         "n"
       ];
       action = "<cmd>Wtf<CR>";
+      options.desc = "Explain diagnostic";
     }
     {
       key = "<leader>ws";
@@ -16,6 +17,7 @@
         "n"
       ];
       action = "<cmd>WtfSearch google<CR>";
+      options.desc = "Search diagnostic online";
     }
     {
       key = "<leader>wh";
@@ -23,6 +25,7 @@
         "n"
       ];
       action = "<cmd>WtfHistory<CR>";
+      options.desc = "History";
     }
     {
       key = "<leader>wg";
@@ -30,6 +33,7 @@
         "n"
       ];
       action = "<cmd>WtfGrepHistory<CR>";
+      options.desc = "Grep history";
     }
   ];
 }

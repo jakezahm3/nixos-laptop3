@@ -58,6 +58,7 @@
       key = "<leader>o";
       mode = [ "n" ];
       action = "<cmd>AerialToggle<CR>";
+      options.desc = "Symbol outline";
     }
   ];
 }

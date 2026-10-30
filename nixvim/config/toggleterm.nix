@@ -28,7 +28,26 @@
       options = {
         silent = true;
         noremap = true;
+        desc = "Toggle terminal";
       };
+    }
+    {
+      key = "<leader>tf";
+      mode = [ "n" ];
+      action = "<cmd>ToggleTerm direction=float<CR>";
+      options.desc = "Floating terminal";
+    }
+    {
+      key = "<leader>th";
+      mode = [ "n" ];
+      action = "<cmd>ToggleTerm size=15 direction=horizontal<CR>";
+      options.desc = "Horizontal terminal";
+    }
+    {
+      key = "<leader>tv";
+      mode = [ "n" ];
+      action = "<cmd>ToggleTerm size=80 direction=vertical<CR>";
+      options.desc = "Vertical terminal";
     }
   ];
 }

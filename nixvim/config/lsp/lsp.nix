@@ -133,16 +133,30 @@
         #     desc = "Rename";
         #   };
         # };
+        lspBuf = {
+          "<leader>ca" = {
+            action = "code_action";
+            mode = [
+              "n"
+              "v"
+            ];
+            desc = "Code action";
+          };
+          "<leader>cr" = {
+            action = "rename";
+            desc = "Rename symbol";
+          };
+        };
         diagnostic = {
           "<leader>cd" = {
             action = "open_float";
             desc = "Line Diagnostics";
           };
-          "[d" = {
+          "]d" = {
             action = "goto_next";
             desc = "Next Diagnostic";
           };
-          "]d" = {
+          "[d" = {
             action = "goto_prev";
             desc = "Previous Diagnostic";
           };

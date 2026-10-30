@@ -26,6 +26,7 @@
       key = "<leader>zm";
       mode = [ "n" ];
       action = "<cmd>ZenMode<CR>";
+      options.desc = "Zen mode";
     }
   ];
 }

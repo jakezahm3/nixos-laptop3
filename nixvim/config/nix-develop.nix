@@ -31,6 +31,7 @@
       key = "<leader>nd";
       mode = [ "n" ];
       action = "<cmd>NixDevelop<CR>";
+      options.desc = "Load nix develop shell";
     }
   ];
 }

@@ -81,6 +81,33 @@
 
     {
       mode = "n";
+      key = "<leader>br";
+      action = "<cmd>BufferLineCloseRight<cr>";
+      options = {
+        desc = "Delete buffers to the right";
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>bb";
+      action = "<cmd>e #<cr>";
+      options = {
+        desc = "Switch to other buffer";
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>bj";
+      action = "<cmd>BufferLinePick<cr>";
+      options = {
+        desc = "Pick buffer";
+      };
+    }
+
+    {
+      mode = "n";
       key = "<leader>bo";
       action = "<cmd>BufferLineCloseOthers<cr>";
       options = {

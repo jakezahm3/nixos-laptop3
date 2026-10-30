@@ -29,6 +29,7 @@
       options = {
         silent = true;
         noremap = true;
+        desc = "Lazygit";
       };
     }
   ];
