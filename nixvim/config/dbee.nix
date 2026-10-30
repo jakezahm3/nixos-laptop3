@@ -1,5 +1,0 @@
-{
-  plugins.dbee = {
-    enable = true;
-  };
-}

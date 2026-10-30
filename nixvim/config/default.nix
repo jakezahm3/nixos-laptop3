@@ -1,8 +1,8 @@
 { pkgs, lib, ... }:
 {
   imports = [
-    # ./rustaceanvim.nix
-    ./dbee.nix
+    ./dashboard.nix
+    ./rainbow-delimiters.nix
     ./crates.nix
     ./keymaps.nix
     ./treesitter.nix
@@ -13,18 +13,15 @@
     ./snacks.nix
     ./gitsigns.nix
     ./whichkey.nix
-    ./hlchunk.nix
     ./yanky.nix
     ./autopairs.nix
     ./blink-cmp.nix
-    ./tmux-navigator.nix
     ./smear-cursor.nix
     ./lsp/conform.nix
     ./lsp/fidget.nix
     ./lsp/lsp.nix
     ./nix-develop.nix
     ./aerial.nix
-    ./autosave.nix
     ./notify.nix
     ./barbecue.nix
     ./noice.nix
@@ -37,7 +34,6 @@
     ./treesj.nix
     ./web-devicons.nix
     ./clipboard.nix
-    ./opencode.nix
   ];
 
   config = {
