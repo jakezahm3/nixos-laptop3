@@ -1,4 +1,6 @@
 {
+  "extensions.autoUpdate": false,
+  "extensions.autoCheckUpdates": false,
   "nix.enableLanguageServer": true,
   "nix.serverPath": "nixd",
   "nix.serverSettings": {
@@ -13,6 +15,5 @@
         }
       }
     }
-  },
-  "workbench.colorTheme": "NoctaliaTheme"
+  }
 }
