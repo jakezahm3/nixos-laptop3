@@ -283,6 +283,7 @@ in {
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.sessionVariables = {
     "SUDO_EDITOR" = "nvim";
+    "NIXPKGS_ALLOW_UNFREE" = "1";
   };
 
   services.qbittorrent = {
@@ -390,6 +391,8 @@ in {
   programs.nixvim = {
     enable = true;
     imports = [ ./nixvim/default.nix ];
+    # Nixvim builds its own nixpkgs instance, so the system allowUnfree doesn't apply here.
+    nixpkgs.config.allowUnfree = true;
   };
 
   zramSwap.enable = true;
