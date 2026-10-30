@@ -219,6 +219,7 @@ in {
         tamasfe.even-better-toml
         mads-hartmann.bash-ide-vscode
         hashicorp.terraform
+        ms-python.pylint
       ];
     };
   };
