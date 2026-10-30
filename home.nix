@@ -212,6 +212,14 @@ in {
       profiles.default.extensions = with pkgs.vscode-extensions; [
         jnoortheen.nix-ide
         anthropic.claude-code
+        rust-lang.rust-analyzer
+        ms-python.black-formatter
+        ms-pyright.pyright
+        vscode-json-languageserver
+        redhat.vscode-yaml
+        tamasfe.even-better-toml
+        mads-hartmann.bash-ide-vscode
+        hashicorp.terraform
       ];
     };
   };
