@@ -1,5 +1,5 @@
 {
-  "extensions.autoUpdate": false,
+  "extensions.autoUpdate": "off",
   "extensions.autoCheckUpdates": false,
   "nix.enableLanguageServer": true,
   "nix.serverPath": "nixd",
@@ -15,5 +15,7 @@
         }
       }
     }
-  }
+  },
+  "claudeCode.hideOnboarding": true,
+  "workbench.colorTheme": "NoctaliaTheme"
 }
