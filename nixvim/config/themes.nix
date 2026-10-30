@@ -1,7 +1,7 @@
 { ... }:
 {
   colorschemes = {
-    solarized-osaka = {
+    ayu = {
       enable = true;
     };
   };
