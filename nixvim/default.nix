@@ -3,6 +3,6 @@
 
   colorschemes.base16 = {
     enable = true;
-    colorscheme = "material-darker";
+    colorscheme = "darcula";
   };
 }
