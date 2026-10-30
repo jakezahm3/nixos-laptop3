@@ -3,35 +3,37 @@
   inputs,
   pkgs,
   ...
-}: let
+}:
+let
   # Noctalia data directory matching noctalia.pluginDataDir()
   noctaliaDataDir = "${config.xdg.dataHome}/noctalia/plugins/custom-clock";
 
   # Inline Python rendering script block
   clockRenderScript =
-    pkgs.writers.writePython3Bin "time-img-render" {
-      libraries = []; # Standard library modules used only (time, subprocess, os)
-    }
-    ''
-      import time
-      import subprocess
-      import os
+    pkgs.writers.writePython3Bin "time-img-render"
+      {
+        libraries = [ ]; # Standard library modules used only (time, subprocess, os)
+      }
+      ''
+        import time
+        import subprocess
+        import os
 
-      # Ensure output directory target exists prior to image generation
-      output_dir = "${noctaliaDataDir}"
-      os.makedirs(output_dir, exist_ok=True)
-      output_file = f"{output_dir}/clock.png"
+        # Ensure output directory target exists prior to image generation
+        output_dir = "${noctaliaDataDir}"
+        os.makedirs(output_dir, exist_ok=True)
+        output_file = f"{output_dir}/clock.png"
 
-      t = time.localtime()
-      hour = t.tm_hour % 12 or 12
-      minute = t.tm_min
-      day = t.tm_mday
-      month = t.tm_mon
-      year = t.tm_year
+        t = time.localtime()
+        hour = t.tm_hour % 12 or 12
+        minute = t.tm_min
+        day = t.tm_mday
+        month = t.tm_mon
+        year = t.tm_year
 
-      command = f"""magick -size 300x110 canvas:transparent -draw 'rectangle 0,0 300,110' -pointsize 128 -font '7-Segment' -fill '#FF2400' -draw 'text 0,104 "{hour:02d}"' -fill white -pointsize 84 -draw 'text 116,104 ":{minute:02d}"' -fill '#FF2400' -stroke '#FF2400' -strokewidth 5 -draw 'line 220,0 220,110' -strokewidth 0 -stroke none -fill white -pointsize 32 -draw 'text 230, 30 "{day:02d}"' -draw 'text 230, 64 "{time.strftime("%b", t).upper()}"' -draw 'text 230, 100 "{year}"' {output_file}"""  # noqa: E501
-      subprocess.run(command, shell=True)
-    '';
+        command = f"""magick -size 300x110 canvas:transparent -draw 'rectangle 0,0 300,110' -pointsize 128 -font '7-Segment' -fill '#FF2400' -draw 'text 0,104 "{hour:02d}"' -fill white -pointsize 84 -draw 'text 116,104 ":{minute:02d}"' -fill '#FF2400' -stroke '#FF2400' -strokewidth 5 -draw 'line 220,0 220,110' -strokewidth 0 -stroke none -fill white -pointsize 32 -draw 'text 230, 30 "{day:02d}"' -draw 'text 230, 64 "{time.strftime("%b", t).upper()}"' -draw 'text 230, 100 "{year}"' {output_file}"""  # noqa: E501
+        subprocess.run(command, shell=True)
+      '';
 
   # Dotfiles are symlinked to the working copy, so edits apply without a
   # rebuild. This must be a string: a path literal like ./dot-files would be
@@ -39,7 +41,8 @@
   flakeDir = "${config.home.homeDirectory}/nixos";
   dots = "${flakeDir}/dot-files";
   live = f: config.lib.file.mkOutOfStoreSymlink "${dots}/${f}";
-in {
+in
+{
   imports = [
     #inputs.nix4nvchad.homeManagerModules.default
     inputs.noctalia.homeModules.default
@@ -49,7 +52,6 @@ in {
   xdg.configFile = {
     "nvim".source = live "nvim";
     "ghostty/config.ghostty".source = live "config.ghostty";
-    "kitty/kitty.conf".source = live "kitty.conf";
     "helix/config.toml".source = live "config.toml";
     "helix/languages.toml".source = live "languages.toml";
     "bacon/prefs.toml".source = live "prefs.toml";
@@ -81,7 +83,7 @@ in {
     };
     Service = {
       Type = "oneshot";
-      Environment = "PATH=${pkgs.lib.makeBinPath [pkgs.imagemagick]}";
+      Environment = "PATH=${pkgs.lib.makeBinPath [ pkgs.imagemagick ]}";
       ExecStart = "${clockRenderScript}/bin/time-img-render";
     };
   };
@@ -95,7 +97,7 @@ in {
       AccuracySec = "1s";
     };
     Install = {
-      WantedBy = ["timers.target"];
+      WantedBy = [ "timers.target" ];
     };
   };
 
@@ -155,7 +157,6 @@ in {
     pkgs.python3
     pkgs.wl-clipboard
     pkgs.claude-code
-    pkgs.kitty
     pkgs.neovide
     pkgs.eyedropper
     pkgs.toolhive
@@ -206,18 +207,16 @@ in {
     pkgs.psst
     pkgs.speedtest-cli
     (pkgs.mailspring.overrideAttrs (oldAttrs: {
-      postFixup =
-        (oldAttrs.postFixup or "")
-        + ''
-          wrapProgram $out/bin/mailspring \
-            --add-flags "--password-store=\"gnome-libsecret\""
-        '';
+      postFixup = (oldAttrs.postFixup or "") + ''
+        wrapProgram $out/bin/mailspring \
+          --add-flags "--password-store=\"gnome-libsecret\""
+      '';
     }))
   ];
 
   i18n.glibcLocales = pkgs.glibcLocales.override {
     allLocales = false;
-    locales = ["en_US.UTF-8/UTF-8"];
+    locales = [ "en_US.UTF-8/UTF-8" ];
   };
 
   programs.umbriel = {
@@ -252,8 +251,8 @@ in {
 
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
-    age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
-    secrets.spotify_pw = {};
+    age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+    secrets.spotify_pw = { };
   };
 
   programs.git = {
@@ -266,7 +265,7 @@ in {
       init.defaultBranch = "main";
       safe.directory = "/etc/nixos";
     };
-    ignores = ["**/.claude/settings.local.json"];
+    ignores = [ "**/.claude/settings.local.json" ];
   };
 
   programs.ghostty = {
