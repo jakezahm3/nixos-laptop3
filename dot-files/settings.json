@@ -1,5 +1,4 @@
 {
-  "workbench.colorTheme": "NoctaliaTheme",
   "nix.enableLanguageServer": true,
   "nix.serverPath": "nixd",
   "nix.serverSettings": {
@@ -14,5 +13,6 @@
         }
       }
     }
-  }
+  },
+  "workbench.colorTheme": "NoctaliaTheme"
 }

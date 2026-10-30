@@ -109,68 +109,68 @@ in {
     settings = ./dot-files/noctalia-config.toml;
   };
 
-  home.packages = [
-    pkgs.python314Packages.pillow
-    pkgs.cargo
-    pkgs.rustc
-    pkgs.virt-viewer
-    pkgs.woeusb-ng
-    pkgs.mullvad-compass
-    pkgs.mullvad-browser
-    pkgs.babelfish
-    pkgs.ethtool
-    pkgs.go
-    pkgs.gnumake
-    pkgs.nmap
-    pkgs.yazi
-    pkgs.fish
-    pkgs.nodejs
-    pkgs.tealdeer
-    pkgs.ghostty
-    pkgs.python3
-    pkgs.wl-clipboard
-    pkgs.claude-code
-    pkgs.neovide
-    pkgs.eyedropper
-    pkgs.dnsutils
-    pkgs.lua-language-server
-    pkgs.nixd
-    pkgs.gcc
-    pkgs.traceroute
-    pkgs.speedtest-rs
-    pkgs.stylua
-    pkgs.nixfmt
-    pkgs.gimp
-    pkgs.imagemagick
-    pkgs.ghostscript
-    pkgs.rust-analyzer
-    pkgs.rustc
-    pkgs.tectonic
-    pkgs.mermaid-cli
-    pkgs.rustfmt
-    pkgs.alejandra
-    pkgs.prettierd
-    pkgs.beautysh
-    pkgs.taplo
-    pkgs.black
-    pkgs.terraform-lsp
-    pkgs.zathura
-    pkgs.texliveFull
-    pkgs.pyright
-    pkgs.black
-    pkgs.nil
-    pkgs.micro-full
-    pkgs.ripgrep
-    pkgs.awscli2
-    pkgs.jq
-    pkgs.nix-search-tv
-    pkgs.fzf
-    pkgs.pywalfox-native
-    pkgs.tmuxp
-    pkgs.yt-dlp
-    pkgs.psst
-    pkgs.speedtest-cli
-    (pkgs.mailspring.overrideAttrs (oldAttrs: {
+  home.packages = with pkgs; [
+    python314Packages.pillow
+    cargo
+    rustc
+    virt-viewer
+    woeusb-ng
+    mullvad-compass
+    mullvad-browser
+    babelfish
+    ethtool
+    go
+    gnumake
+    nmap
+    yazi
+    fish
+    nodejs
+    tealdeer
+    ghostty
+    python3
+    wl-clipboard
+    claude-code
+    neovide
+    eyedropper
+    dnsutils
+    lua-language-server
+    nixd
+    gcc
+    traceroute
+    speedtest-rs
+    stylua
+    nixfmt
+    gimp
+    imagemagick
+    ghostscript
+    rust-analyzer
+    rustc
+    tectonic
+    mermaid-cli
+    rustfmt
+    alejandra
+    prettierd
+    beautysh
+    taplo
+    black
+    terraform-lsp
+    zathura
+    texliveFull
+    pyright
+    black
+    nil
+    micro-full
+    ripgrep
+    awscli2
+    jq
+    nix-search-tv
+    fzf
+    pywalfox-native
+    tmuxp
+    yt-dlp
+    psst
+    speedtest-cli
+    (mailspring.overrideAttrs (oldAttrs: {
       postFixup =
         (oldAttrs.postFixup or "")
         + ''
@@ -209,7 +209,10 @@ in {
       package = pkgs.vscode.override {
         commandLineArgs = "--password-store=gnome-libsecret";
       };
-      profiles.default.extensions = [pkgs.vscode-extensions.jnoortheen.nix-ide];
+      profiles.default.extensions = with pkgs.vscode-extensions; [
+        jnoortheen.nix-ide
+        anthropic.claude-code
+      ];
     };
   };
 
@@ -314,18 +317,7 @@ in {
   programs.fzf.enable = true;
   programs.ripgrep-all.enable = true;
 
-  services.spotifyd = {
-    enable = true;
-    settings = {
-      global = {
-        username = "zahm@crystal.harvard.edu";
-        password = config.sops.secrets.spotify_pw.path;
-      };
-    };
-  };
-
   services.ssh-agent.enable = true;
-
   services.mpris-proxy.enable = true;
 
   home.sessionVariables = {
