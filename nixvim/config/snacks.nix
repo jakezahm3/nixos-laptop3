@@ -10,7 +10,7 @@
     autoLoad = true;
     settings = {
       dashboard = {
-        enable = false;
+        enabled = false;
       };
     };
   };
