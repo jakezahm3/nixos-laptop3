@@ -1,8 +1,8 @@
 {lib, ...}: {
   imports = [./plugins];
 
-  colorschemes.base16 = {
+  colorschemes.oxocarbon = {
     enable = true;
-    colorscheme = "nord";
+    #colorscheme = "nord";
   };
 }
