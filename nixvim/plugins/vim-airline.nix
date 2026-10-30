@@ -1,6 +1,6 @@
 {
   plugins = {
-    airline = {
+    lightline = {
       enable = true;
     };
   };
