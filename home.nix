@@ -215,7 +215,6 @@ in {
         rust-lang.rust-analyzer
         ms-python.black-formatter
         ms-pyright.pyright
-        vscode-json-languageserver
         redhat.vscode-yaml
         tamasfe.even-better-toml
         mads-hartmann.bash-ide-vscode
