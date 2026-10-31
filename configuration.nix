@@ -290,6 +290,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     wireguard-ui
+    strawberry
     wireguard-tools
     conda
     flake-checker
