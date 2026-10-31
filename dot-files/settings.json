@@ -5,7 +5,11 @@
   "nix.serverPath": "nixd",
   "nix.serverSettings": {
     "nixd": {
-      "formatting": { "command": ["alejandra"] },
+      "formatting": {
+        "command": [
+          "alejandra"
+        ]
+      },
       "options": {
         "nixos": {
           "expr": "(builtins.getFlake \"/home/jzahm/nixos\").nixosConfigurations.nixos.options"
@@ -17,5 +21,7 @@
     }
   },
   "claudeCode.hideOnboarding": true,
-  "claudeCode.preferredLocation": "panel"
+  "claudeCode.preferredLocation": "panel",
+  "editor.formatOnSave": true,
+  "workbench.colorTheme": "NoctaliaTheme"
 }
