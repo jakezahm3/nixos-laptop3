@@ -193,6 +193,9 @@ follows_mouse = true
 "Mod+Ctrl+F" = { action = "window-toggle-maximize", repeat = false }
 "Mod+R" = "window-cycle-primary-extent"
 "Mod+Shift+R" = "window-cycle-primary-extent-back"
+"Mod+Equal" = "window-modify-primary-extent 0.05"
+"Mod+Plus" = "window-modify-primary-extent 0.05"
+"Mod+Minus" = "window-modify-primary-extent -0.05"
 "Mod+Comma" = "window-consume-left"
 "Mod+Period" = "window-consume-right"
 "Mod+Ctrl+Comma" = "window-consume-from-left"
