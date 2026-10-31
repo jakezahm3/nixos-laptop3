@@ -290,7 +290,9 @@ in {
 
   environment.systemPackages = with pkgs; [
     wireguard-ui
-    strawberry
+    (strawberry.override {
+      withGpod = true;
+    })
     wireguard-tools
     conda
     flake-checker
