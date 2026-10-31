@@ -125,6 +125,8 @@ choose = ["pulse"]
 [effects]
 border = "pulse"
 #cursor = "trail"
+[effects.pulse]
+padding = 12
 
 # ==============================================================================
 # Input
