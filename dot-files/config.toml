@@ -13,7 +13,10 @@
 # Optional split configuration
 # https://docs.noctalia.dev/umbriel/configuration/#include
 [include]
-files = []
+files = [
+    "/etc/profiles/per-user/jzahm/share/umbriel/effects/border/pulse/effect.toml",
+    "/etc/profiles/per-user/jzahm/share/umbriel/effects/cursor/trail/effect.toml",
+]
 
 [include.optional]
 files = []
@@ -37,8 +40,8 @@ xwayland = true
 # `umbriel outputs`.
 # https://docs.noctalia.dev/umbriel/configuration/#events
 [events]
-lid_close = "umbriel msg output-disable:eDP-1"
-lid_open = "umbriel msg output-enable:eDP-1"
+lid_close = "umbriel msg output-disable eDP-1"
+lid_open = "umbriel msg output-enable eDP-1"
 
 # ==============================================================================
 # Screencast
@@ -92,11 +95,7 @@ saturation = 1.1
 # scale with overview zoom. Include a bundled preset (adjust /usr for the
 # package prefix), then select it by name.
 # https://docs.noctalia.dev/umbriel/effects/
-# [include]
-files = [
-    "/usr/share/umbriel/effects/border/pulse/effect.toml",
-    "/usr/share/umbriel/effects/cursor/trail/effect.toml"
-]
+# (The pulse and trail presets are listed in [include] at the top.)
 # For a cursor tail, include /usr/share/umbriel/effects/cursor/trail/effect.toml
 # and set cursor = "trail" in [effects].
 # For audio-reactive borders, include /usr/share/umbriel/effects/border/audio/effect.toml
@@ -109,9 +108,13 @@ files = [
 # selection = "unused_first" # or round_robin, random
 # Select with border = "borders" in your [effects] table.
 # Add to your existing [keybinds] table:
-# "Mod+Shift+E" = "effect-border-cycle:borders"
+# "Mod+Shift+E" = "effect-border-cycle borders"
 # "Mod+Ctrl+E" = "effect-border-toggle"
 # "Mod+Alt+E" = "effect-border-reset"
+
+[effects.pool.borders]
+kind = "border"
+choose = ["pulse"]
 
 [effects]
 border = "pulse"
@@ -142,13 +145,13 @@ follows_mouse = true
 [keybinds]
 
 # Applications and session
-"Mod+Return" = { action = "spawn:ghostty", repeat = false }
-"Mod+Y" = { action = "spawn:yazi", repeat = false }
-"Mod" = "spawn:noctalia msg panel-toggle launcher"
+"Mod+Return" = { action = "spawn ghostty", repeat = false }
+"Mod+Y" = { action = "spawn yazi", repeat = false }
+"Mod" = "spawn noctalia msg panel-toggle launcher"
 "Mod+Q" = { action = "window-close", repeat = false }
 "Mod+Escape" = "session-quit"
 "Mod+Shift+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
-"Mod+Shift+E" = "effect-border-cycle:borders"
+"Mod+Shift+E" = "effect-border-cycle borders"
 "Mod+Ctrl+E" = "effect-border-toggle"
 "Mod+Alt+E" = "effect-border-reset"
 
@@ -189,24 +192,24 @@ follows_mouse = true
 "Mod+O" = { action = "overview-toggle", repeat = false }
 
 # Workspaces
-"Mod+1" = "workspace-switch:1"
-"Mod+2" = "workspace-switch:2"
-"Mod+3" = "workspace-switch:3"
-"Mod+4" = "workspace-switch:4"
-"Mod+5" = "workspace-switch:5"
-"Mod+6" = "workspace-switch:6"
-"Mod+7" = "workspace-switch:7"
-"Mod+8" = "workspace-switch:8"
-"Mod+9" = "workspace-switch:9"
-"Mod+Shift+1" = "window-move-to-workspace:1"
-"Mod+Shift+2" = "window-move-to-workspace:2"
-"Mod+Shift+3" = "window-move-to-workspace:3"
-"Mod+Shift+4" = "window-move-to-workspace:4"
-"Mod+Shift+5" = "window-move-to-workspace:5"
-"Mod+Shift+6" = "window-move-to-workspace:6"
-"Mod+Shift+7" = "window-move-to-workspace:7"
-"Mod+Shift+8" = "window-move-to-workspace:8"
-"Mod+Shift+9" = "window-move-to-workspace:9"
+"Mod+1" = "workspace-switch 1"
+"Mod+2" = "workspace-switch 2"
+"Mod+3" = "workspace-switch 3"
+"Mod+4" = "workspace-switch 4"
+"Mod+5" = "workspace-switch 5"
+"Mod+6" = "workspace-switch 6"
+"Mod+7" = "workspace-switch 7"
+"Mod+8" = "workspace-switch 8"
+"Mod+9" = "workspace-switch 9"
+"Mod+Shift+1" = "window-move-to-workspace 1"
+"Mod+Shift+2" = "window-move-to-workspace 2"
+"Mod+Shift+3" = "window-move-to-workspace 3"
+"Mod+Shift+4" = "window-move-to-workspace 4"
+"Mod+Shift+5" = "window-move-to-workspace 5"
+"Mod+Shift+6" = "window-move-to-workspace 6"
+"Mod+Shift+7" = "window-move-to-workspace 7"
+"Mod+Shift+8" = "window-move-to-workspace 8"
+"Mod+Shift+9" = "window-move-to-workspace 9"
 
 # Scratchpad
 "Mod+Shift+Space" = { action = "window-move-to-scratchpad", repeat = false }
