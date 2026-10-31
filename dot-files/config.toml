@@ -137,7 +137,7 @@ speed = 0
 [effects.preset.pulse.light]
 spread = 4.8
 intensity = 0.1
-threshold = 0.1
+threshold = 10
 
 # ==============================================================================
 # Input
