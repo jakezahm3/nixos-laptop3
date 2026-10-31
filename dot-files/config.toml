@@ -122,11 +122,11 @@ saturation = 1.1
 #kind = "border"
 #choose = ["pulse"]
 
-#[effects]
-#border = "pulse"
-#cursor = "trail"
-#[effects.pulse]
-#padding = 12
+[effects]
+border = "pulse"
+cursor = "trail"
+[effects.pulse]
+padding = 4
 
 # ==============================================================================
 # Input
