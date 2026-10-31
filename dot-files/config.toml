@@ -14,7 +14,6 @@
 # https://docs.noctalia.dev/umbriel/configuration/#include
 [include]
 files = [
-    "/etc/profiles/per-user/jzahm/share/umbriel/effects/border/pulse/effect.toml",
     "/etc/profiles/per-user/jzahm/share/umbriel/effects/cursor/trail/effect.toml",
     "/etc/profiles/per-user/jzahm/share/umbriel/effects/animation/workspace_wipe/effect.toml",
 ]
@@ -101,7 +100,7 @@ saturation = 1.1
 # scale with overview zoom. Include a bundled preset (adjust /usr for the
 # package prefix), then select it by name.
 # https://docs.noctalia.dev/umbriel/effects/
-# (The pulse and trail presets are listed in [include] at the top.)
+# (The trail preset is listed in [include] at the top; pulse is defined below.)
 # For a cursor tail, include /usr/share/umbriel/effects/cursor/trail/effect.toml
 # and set cursor = "trail" in [effects].
 # For audio-reactive borders, include /usr/share/umbriel/effects/border/audio/effect.toml
@@ -124,12 +123,18 @@ saturation = 1.1
 
 [effects]
 border = "pulse"
-cursor = "trail"
+#cursor = "trail"
 
-[effects.pulse]
+# Tuned copy of the bundled pulse preset. Its effect.toml is not included:
+# a preset name can only be defined once across all files.
+[effects.preset.pulse]
+kind = "border"
+shader = "/etc/profiles/per-user/jzahm/share/umbriel/effects/border/pulse/shader.glsl"
+palette = true
 padding = 4
+speed = false
 
-[effects.pulse.light]
+[effects.preset.pulse.light]
 spread = 12
 intensity = 0.8
 threshold = 0.4
