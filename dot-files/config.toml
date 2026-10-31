@@ -122,22 +122,18 @@ saturation = 1.1
 #choose = ["pulse"]
 
 [effects]
-border = "pulse"
+border = "quiet"
 #cursor = "trail"
 
 # Tuned copy of the bundled pulse preset. Its effect.toml is not included:
 # a preset name can only be defined once across all files.
-[effects.preset.pulse]
-kind = "border"
-shader = "/etc/profiles/per-user/jzahm/share/umbriel/effects/border/pulse/shader.glsl"
-palette = true
-padding = 12
-speed = 0
+#[effects.preset.pulse]
+#kind = "border"
+#shader = "/etc/profiles/per-user/jzahm/share/umbriel/effects/border/pulse/shader.glsl"
+#palette = true
+#padding = 12
+#animated = false
 
-[effects.preset.pulse.light]
-spread = 4.8
-intensity = 0.1
-threshold = 10
 
 # ==============================================================================
 # Input
