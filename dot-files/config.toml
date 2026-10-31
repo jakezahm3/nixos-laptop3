@@ -121,8 +121,8 @@ saturation = 1.1
 #kind = "border"
 #choose = ["pulse"]
 
-[effects]
-border = "quiet"
+#[effects]
+#border = "quiet"
 #cursor = "trail"
 
 # Tuned copy of the bundled pulse preset. Its effect.toml is not included:
@@ -163,14 +163,11 @@ follows_mouse = true
 "Mod+Return" = { action = "spawn ghostty", repeat = false }
 "Mod+Y" = { action = "spawn yazi", repeat = false }
 "Mod+B" = { action = "spawn firefox", repeat = false }
+"Mod+V" = { action = "spawn vivaldi", repeat = false }
 "Mod" = "spawn noctalia msg panel-toggle launcher"
 "Mod+Q" = { action = "window-close", repeat = false }
 "Mod+Escape" = "session-quit"
 "Mod+Shift+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
-"Mod+Shift+E" = "effect-border-cycle borders"
-"Mod+Ctrl+E" = "effect-border-toggle"
-"Mod+Alt+E" = "effect-border-reset"
-
 
 # Focus and movement
 "Mod+Left" = "window-focus-left"
@@ -250,19 +247,19 @@ default_extent_fraction = 0.5
 # windows stacked beside it; Mod+Shift+J/K move a tab out of its group or a
 # window into one. Click, scroll, or drag a title to switch, reorder, or pull it
 # out.
-# [layout.tabs]
-# default_display = "normal"
-# new_tab_position = "after_active"
-# middle_click_closes = true
+[layout.tabs]
+default_display = "normal"
+new_tab_position = "after_active"
+middle_click_closes = true
 #
-# [appearance.tab_bar]
-# style = "titles"         # "indicator" draws thin slots without titles
-# height = 24
-# font = "sans 10"
-# visible = true           # false hides every bar; tabs keep working
-# hide_when_single = false
-# max_tabs = 6            # show at most 6 slots; more tabs scroll
-# overflow = "scroll"      # or "shrink" to fit every tab
+[appearance.tab_bar]
+style = "titles"         # "indicator" draws thin slots without titles
+height = 24
+font = "sans 10"
+visible = true           # false hides every bar; tabs keep working
+hide_when_single = false
+max_tabs = 6            # show at most 6 slots; more tabs scroll
+overflow = "scroll"      # or "shrink" to fit every tab
 
 # ==============================================================================
 # Window rules
