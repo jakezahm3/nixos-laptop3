@@ -125,8 +125,14 @@ saturation = 1.1
 [effects]
 border = "pulse"
 cursor = "trail"
+
 [effects.pulse]
 padding = 4
+
+[effects.pulse.light]
+spread = 12
+intensity = 0.8
+threshold = 0.4
 
 # ==============================================================================
 # Input
