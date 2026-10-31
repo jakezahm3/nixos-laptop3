@@ -187,7 +187,7 @@ in {
 
   programs.umbriel = {
     enable = true;
-    settings = ./dot-files/umbriel.toml;
+    settings = ./dot-files/config.toml;
   };
 
   programs = {
