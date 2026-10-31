@@ -131,11 +131,11 @@ border = "pulse"
 kind = "border"
 shader = "/etc/profiles/per-user/jzahm/share/umbriel/effects/border/pulse/shader.glsl"
 palette = true
-padding = 24
+padding = 4
 speed = 0
 
 [effects.preset.pulse.light]
-spread = 4
+spread = 24
 intensity = 0.8
 threshold = 0.4
 
