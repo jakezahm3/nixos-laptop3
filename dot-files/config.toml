@@ -135,7 +135,7 @@ padding = 2
 speed = 0
 
 [effects.preset.pulse.light]
-spread = .15
+spread = .015
 intensity = 0.8
 threshold = 0.1
 
