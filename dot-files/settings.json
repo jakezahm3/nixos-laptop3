@@ -17,6 +17,5 @@
     }
   },
   "claudeCode.hideOnboarding": true,
-  "workbench.colorTheme": "NoctaliaTheme",
   "claudeCode.preferredLocation": "panel"
 }
