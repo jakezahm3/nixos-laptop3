@@ -289,10 +289,14 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    wireguard-ui
-    (strawberry.override {
-      withGpod = true;
-    })
+    (strawberry.overrideAttrs (oldAttrs: {
+      buildInputs =
+        (oldAttrs.buildInputs or [])
+        ++ [
+          libgpod
+          glib
+        ];
+    }))
     wireguard-tools
     conda
     flake-checker
