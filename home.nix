@@ -111,6 +111,7 @@ in {
 
   home.packages = with pkgs; [
     python314Packages.pillow
+    spyder
     cargo
     rustc
     virt-viewer
