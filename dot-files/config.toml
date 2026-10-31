@@ -37,8 +37,8 @@ xwayland = true
 # `umbriel outputs`.
 # https://docs.noctalia.dev/umbriel/configuration/#events
 # [events]
-# lid_close = "umbriel msg output-disable:eDP-1"
-# lid_open = "umbriel msg output-enable:eDP-1"
+lid_close = "umbriel msg output-disable:eDP-1"
+lid_open = "umbriel msg output-enable:eDP-1"
 
 # ==============================================================================
 # Screencast
@@ -93,7 +93,10 @@ saturation = 1.1
 # package prefix), then select it by name.
 # https://docs.noctalia.dev/umbriel/effects/
 # [include]
-# files = ["/usr/share/umbriel/effects/border/pulse/effect.toml"]
+files = [
+    "/usr/share/umbriel/effects/border/pulse/effect.toml",
+    "/usr/share/umbriel/effects/cursor/trail/effect.toml"
+]
 # For a cursor tail, include /usr/share/umbriel/effects/cursor/trail/effect.toml
 # and set cursor = "trail" in [effects].
 # For audio-reactive borders, include /usr/share/umbriel/effects/border/audio/effect.toml
@@ -110,8 +113,8 @@ saturation = 1.1
 # "Mod+Ctrl+E" = "effect-border-toggle"
 # "Mod+Alt+E" = "effect-border-reset"
 
-# [effects]
-# border = "pulse"
+[effects]
+border = "pulse"
 
 # ==============================================================================
 # Input
@@ -121,8 +124,8 @@ saturation = 1.1
 numlock_toggle = true
 
 # Focus can follow the pointer across tiled, floating, and pinned windows.
-# [input.focus]
-# follows_mouse = true
+[input.focus]
+follows_mouse = true
 
 # Confine touch input to one display.
 # [input.touch]
@@ -144,6 +147,10 @@ numlock_toggle = true
 "Mod+Q" = { action = "window-close", repeat = false }
 "Mod+Escape" = "session-quit"
 "Mod+Shift+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
+"Mod+Shift+E" = "effect-border-cycle:borders"
+"Mod+Ctrl+E" = "effect-border-toggle"
+"Mod+Alt+E" = "effect-border-reset"
+
 
 # Focus and movement
 "Mod+Left" = "window-focus-left"
