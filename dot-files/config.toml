@@ -118,15 +118,15 @@ saturation = 1.1
 # "Mod+Ctrl+E" = "effect-border-toggle"
 # "Mod+Alt+E" = "effect-border-reset"
 
-[effects.pool.borders]
-kind = "border"
-choose = ["pulse"]
+#[effects.pool.borders]
+#kind = "border"
+#choose = ["pulse"]
 
-[effects]
-border = "pulse"
+#[effects]
+#border = "pulse"
 #cursor = "trail"
-[effects.pulse]
-padding = 12
+#[effects.pulse]
+#padding = 12
 
 # ==============================================================================
 # Input
