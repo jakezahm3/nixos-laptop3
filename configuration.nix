@@ -288,15 +288,9 @@ in {
     user = "jzahm";
   };
 
+  services.jupyter.enable = true;
+
   environment.systemPackages = with pkgs; [
-    (strawberry.overrideAttrs (oldAttrs: {
-      buildInputs =
-        (oldAttrs.buildInputs or [])
-        ++ [
-          libgpod
-          glib
-        ];
-    }))
     wireguard-tools
     conda
     flake-checker
