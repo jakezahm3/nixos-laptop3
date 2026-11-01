@@ -28,10 +28,9 @@
     options = ["fmask=0077" "dmask=0077"];
   };
 
-  fileSystems."/home/jzahm/Desktop/disk" = {
-    device = "/dev/disk/by-uuid/42a51aaf-e482-44a9-ad33-84bcbc00697e";
-    fsType = "btrfs";
-    options = ["compress=zstd:3" "noatime" "async" "nofail"];
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/35809808-221a-4b0a-819d-72afae435915";
+    fsType = "ext4";
   };
 
   swapDevices = [];
