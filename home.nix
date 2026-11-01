@@ -120,6 +120,7 @@ in {
         numpy
         pillow
       ])))
+    pyls-spyder
     cargo
     rustc
     virt-viewer
