@@ -288,7 +288,10 @@ in {
     user = "jzahm";
   };
 
-  services.jupyter.enable = true;
+  services.jupyter = {
+    enable = true;
+    password = "jupyter";
+  };
 
   environment.systemPackages = with pkgs; [
     wireguard-tools
