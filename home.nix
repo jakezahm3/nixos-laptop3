@@ -110,8 +110,16 @@ in {
   };
 
   home.packages = with pkgs; [
-    python314Packages.pillow
-    spyder
+    # Spyder runs its console kernel with sys.executable, so it has to live in
+    # the same env as spyder-kernels (and whatever the console should import).
+    # lowPrio: the env also exposes spyder's tool deps (black, …); let the
+    # standalone packages below win on collisions.
+    (lib.lowPrio (python3.withPackages (ps:
+      with ps; [
+        spyder
+        numpy
+        pillow
+      ])))
     cargo
     rustc
     virt-viewer
@@ -128,7 +136,6 @@ in {
     nodejs
     tealdeer
     ghostty
-    python3
     wl-clipboard
     claude-code
     neovide
