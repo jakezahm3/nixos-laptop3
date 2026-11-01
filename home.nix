@@ -119,8 +119,8 @@ in {
         spyder
         numpy
         pillow
+        pyls-spyder
       ])))
-    pyls-spyder
     cargo
     rustc
     virt-viewer
