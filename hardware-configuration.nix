@@ -31,7 +31,7 @@
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/35809808-221a-4b0a-819d-72afae435915";
     fsType = "ext4";
-    options = ["mode=755" "noatime"];
+    options = ["defaults" "noatime"];
   };
 
   swapDevices = [];
