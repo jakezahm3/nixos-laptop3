@@ -294,6 +294,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
+    hdparm
     jupyter
     wireguard-tools
     conda
