@@ -136,6 +136,8 @@ in {
         spyder
         numpy
         pillow
+        ipython
+        python-lsp-server
         pyls-spyder
       ])))
     cargo
