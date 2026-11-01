@@ -294,8 +294,6 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    python314Packages.spyder-kernels
-    python314Packages.spyder
     jupyter
     wireguard-tools
     conda

@@ -40,6 +40,23 @@
   flakeDir = "${config.home.homeDirectory}/nixos";
   dots = "${flakeDir}/dot-files";
   live = f: config.lib.file.mkOutOfStoreSymlink "${dots}/${f}";
+
+  # Spyder 6.1 checks at startup for python-lsp-server >=1.15,<1.16; nixpkgs
+  # ships 1.14. Drop this override once nixpkgs catches up.
+  spyderPython = pkgs.python3.override {
+    self = spyderPython;
+    packageOverrides = pyFinal: pyPrev: {
+      python-lsp-server = pyPrev.python-lsp-server.overridePythonAttrs (old: {
+        version = "1.15.0";
+        src = old.src.override {
+          tag = "v1.15.0";
+          hash = "sha256-LG60x3xwyYly5vVt6KkO0txFxUCNbhFnCXJZ2jjUvC4=";
+        };
+        # nixpkgs' jedi-compat.patch is already in 1.15.0
+        patches = [];
+      });
+    };
+  };
 in {
   imports = [
     #inputs.nix4nvchad.homeManagerModules.default
@@ -114,7 +131,7 @@ in {
     # the same env as spyder-kernels (and whatever the console should import).
     # lowPrio: the env also exposes spyder's tool deps (black, …); let the
     # standalone packages below win on collisions.
-    (lib.lowPrio (python3.withPackages (ps:
+    (lib.lowPrio (spyderPython.withPackages (ps:
       with ps; [
         spyder
         numpy
