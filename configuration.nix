@@ -92,6 +92,7 @@ in {
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
+  programs.hyprland.enable = true;
   programs.umbriel.enable = true;
   services.displayManager = {
     enable = true;
