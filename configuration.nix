@@ -294,7 +294,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    jupyterlab
+    jupyter
     wireguard-tools
     conda
     flake-checker
