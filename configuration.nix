@@ -91,7 +91,6 @@ in {
     wlr.enable = true;
   };
 
-  programs.hyprland.enable = true;
   programs.umbriel.enable = true;
   services.displayManager = {
     enable = true;
