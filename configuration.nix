@@ -349,8 +349,6 @@ in {
   services.gvfs.enable = true;
   services.tumbler.enable = true;
 
-  programs.onlyoffice.enable = true;
-
   programs.thunar = {
     enable = true;
     plugins = with pkgs; [
