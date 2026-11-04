@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./yazi-nvim.nix
     ./colorizer.nix
     ./flash.nix
     ./lastplace.nix
