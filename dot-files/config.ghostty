@@ -3825,7 +3825,7 @@ gtk-titlebar-style = native
 # are the new typical Gnome style where tabs fill their available space.
 # If you set this to `false` then tabs will only take up space they need,
 # which is the old style.
-gtk-wide-tabs = true
+gtk-wide-tabs = false
 
 # Custom CSS files to be loaded.
 #
