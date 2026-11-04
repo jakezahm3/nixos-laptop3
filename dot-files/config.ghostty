@@ -2296,7 +2296,7 @@ window-inherit-font-size = true
 #
 # macOS: To hide the titlebar without removing the native window borders
 #        or rounded corners, use `macos-titlebar-style = hidden` instead.
-window-decoration = client
+window-decoration = server
 
 # The font that will be used for the application's window and tab titles.
 #
@@ -3819,7 +3819,7 @@ gtk-toolbar-style = raised
 # `tabs` title bar can be used to drag the window around.
 #
 # The default style is `native`.
-gtk-titlebar-style = native
+gtk-titlebar-style = tabs
 
 # If `true` (default), then the Ghostty GTK tabs will be "wide." Wide tabs
 # are the new typical Gnome style where tabs fill their available space.
