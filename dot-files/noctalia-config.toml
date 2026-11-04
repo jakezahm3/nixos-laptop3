@@ -918,20 +918,15 @@ wallpaper_scheme = "m3-tonal-spot"
         "foot",
         "gtk3",
         "gtk4",
-        "ghostty",
         "helix",
-        "hyprland",
-        "kcolorscheme",
         "kitty",
         "labwc",
         "mango",
-        "niri",
         "qt",
         "scroll",
         "starship",
         "sway",
         "umbriel",
-        "wezterm"
     ]
     community_ids = [
         "claude-code",
