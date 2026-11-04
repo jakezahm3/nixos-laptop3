@@ -91,6 +91,8 @@ in {
     wlr.enable = true;
   };
 
+  services.openssh.enable = true;
+
   programs.umbriel.enable = true;
   services.displayManager = {
     enable = true;
