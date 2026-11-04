@@ -1,0 +1,13 @@
+# Noctalia user templates (linked live as ~/.config/noctalia/user-templates.toml).
+
+# Replaces Noctalia's built-in "ghostty" template (removed from builtin_ids).
+# The built-in reload script sends SIGUSR2 to every process whose command line
+# starts with `ghostty`, which kills the `ghostty +ssh` wrapper that Ghostty's
+# shell integration puts around ssh and strands the session. This renders the
+# same theme file, then reloads only the main Ghostty instance over D-Bus
+# (--auto-start=no: never launches Ghostty if it isn't running).
+# noctalia-ghostty.template is a copy of the built-in template from noctalia 5.4.1.
+[theme.templates.user.ghostty-dbus]
+input_path = "/home/jzahm/nixos/dot-files/noctalia-ghostty.template"
+output_path = "$XDG_CONFIG_HOME/ghostty/themes/noctalia"
+post_hook = "busctl --user call --auto-start=no com.mitchellh.ghostty /com/mitchellh/ghostty org.gtk.Actions Activate 'sava{sv}' reload-config 0 0 || true"
