@@ -697,7 +697,7 @@ umbriel_overview_type_to_launch_enabled = false
 
     [shell.greeter_sync]
     auto_sync = true
-    privilege_command = "pkexec"
+    privilege_command = "setsid pkexec"
 
     [shell.keyboard_layout]
 
