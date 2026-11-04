@@ -126,6 +126,8 @@ in {
     settings = ./dot-files/noctalia-config.toml;
   };
 
+  programs.kitty = {enable = true;};
+
   home.packages = with pkgs; [
     # Spyder runs its console kernel with sys.executable, so it has to live in
     # the same env as spyder-kernels (and whatever the console should import).
