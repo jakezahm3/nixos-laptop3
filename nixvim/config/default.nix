@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./fugitive.nix
     ./colorizer.nix
     ./flash.nix
     ./lastplace.nix
