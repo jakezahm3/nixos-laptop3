@@ -295,7 +295,6 @@ in {
   environment.systemPackages = with pkgs; [
     hdparm
     exfat
-    exfat-progs
     jupyter
     wireguard-tools
     conda
