@@ -221,16 +221,13 @@ in {
   };
 
   programs = {
-    qalculate.enable = true;
     stylua.enable = true;
     vivaldi.enable = true;
     nix-your-shell.enable = true;
     claude-code.enable = true;
     freetube.enable = true;
     gram.enable = true;
-    kiro.enable = true;
     npm.enable = true;
-    rmpc.enable = true;
     onedrive.enable = true;
     pandoc.enable = true;
     vscode = {
