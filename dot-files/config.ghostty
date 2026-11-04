@@ -2296,7 +2296,7 @@ window-inherit-font-size = true
 #
 # macOS: To hide the titlebar without removing the native window borders
 #        or rounded corners, use `macos-titlebar-style = hidden` instead.
-window-decoration = server
+window-decoration = auto
 
 # The font that will be used for the application's window and tab titles.
 #
@@ -2306,7 +2306,7 @@ window-decoration = server
 # required to be a fixed-width font.
 #
 # Available since: 1.0.0 on macOS, 1.1.0 on GTK
-window-title-font-family =
+window-title-font-family = "IosevkaTerm Nerd Font"
 
 # The text that will be displayed in the subtitle of the window. Valid values:
 #
@@ -3778,7 +3778,7 @@ gtk-single-instance = detect
 #
 # This option does nothing when `window-decoration` is none or when running
 # under macOS.
-gtk-titlebar = true
+gtk-titlebar = false
 
 # Determines the side of the screen that the GTK tab bar will stick to.
 # Top, bottom, and hidden are supported. The default is top.
