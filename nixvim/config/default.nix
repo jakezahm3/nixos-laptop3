@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./colorizer.nix
     ./flash.nix
     ./lastplace.nix
     ./dashboard.nix
