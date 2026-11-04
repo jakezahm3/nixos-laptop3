@@ -143,6 +143,7 @@ in {
         pyls-spyder
       ])))
     cargo
+    terraform
     rustc
     virt-viewer
     woeusb-ng
