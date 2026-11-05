@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./claudecode.nix
     ./fugitive.nix
     ./colorizer.nix
     ./flash.nix

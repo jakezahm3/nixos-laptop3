@@ -1,0 +1,5 @@
+{
+  plugins.claudecode = {
+    enable = true;
+  };
+}
