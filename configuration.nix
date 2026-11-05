@@ -92,7 +92,6 @@ in {
   };
 
   services.openssh.enable = true;
-  services.rqbit.enable = true;
 
   programs.umbriel.enable = true;
   services.displayManager = {
