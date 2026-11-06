@@ -93,6 +93,20 @@ in {
 
   services.openssh.enable = true;
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      cups-filters
+      cups-browsed
+    ];
+  };
+
   programs.umbriel.enable = true;
   services.displayManager = {
     enable = true;
@@ -172,7 +186,6 @@ in {
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
   services.pipewire.socketActivation = true;
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
