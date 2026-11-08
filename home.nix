@@ -143,6 +143,7 @@ in {
         pyls-spyder
       ])))
     cargo
+    picocom
     terraform
     rustc
     virt-viewer
