@@ -311,6 +311,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     uv
+    pkg-config
     hdparm
     exfat
     jupyter
