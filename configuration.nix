@@ -194,7 +194,7 @@ in {
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    jack.enable = true;
+    jack.enable = false;
     extraConfig.pipewire = {
       "98-crackling-fix" = {
         "context.properties" = {
@@ -317,7 +317,6 @@ in {
     jupyter
     wireguard-tools
     conda
-    flake-checker
     vim
     wget
     virtiofsd
