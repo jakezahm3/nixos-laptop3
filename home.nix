@@ -161,7 +161,6 @@ in {
     ghostty
     wl-clipboard
     claude-code
-    neovide
     eyedropper
     dnsutils
     lua-language-server
@@ -349,7 +348,6 @@ in {
     ];
   };
 
-  programs.brave-origin.enable = true;
   programs.fzf.enable = true;
   programs.ripgrep-all.enable = true;
 
