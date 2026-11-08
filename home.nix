@@ -175,7 +175,6 @@ in {
     ghostscript
     rust-analyzer
     rustc
-    tectonic
     mermaid-cli
     rustfmt
     alejandra
