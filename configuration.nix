@@ -307,7 +307,10 @@ in {
     password = "jupyter";
   };
 
+  programs.nix-ld.enable = true;
+
   environment.systemPackages = with pkgs; [
+    uv
     hdparm
     exfat
     jupyter
