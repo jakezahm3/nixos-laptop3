@@ -315,6 +315,7 @@ in {
     hdparm
     exfat
     jupyter
+    openssl
     wireguard-tools
     conda
     vim
