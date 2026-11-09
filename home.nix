@@ -187,7 +187,6 @@ in {
     zathura
     texliveFull
     pyright
-    black
     nil
     micro-full
     ripgrep

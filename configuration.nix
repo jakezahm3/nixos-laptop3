@@ -241,7 +241,7 @@ in {
     "root".shell = pkgs.bash;
   };
 
-  programs.firefox.enable = true;
+  programs.firefox.enable = false;
   programs.fish.enable = true;
 
   nixpkgs.config.allowUnfree = true;
