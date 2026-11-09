@@ -228,7 +228,6 @@ in {
     freetube.enable = true;
     gram.enable = true;
     npm.enable = true;
-    onedrive.enable = true;
     pandoc.enable = true;
     vscode = {
       enable = true;
