@@ -215,7 +215,7 @@ in {
   };
 
   programs.umbriel = {
-    enable = true;
+    enable = false;
     settings = ./dot-files/config.toml;
   };
 

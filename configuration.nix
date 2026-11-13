@@ -250,7 +250,7 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   programs.noctalia = {
-    enable = true;
+    enable = false;
     recommendedServices.enable = true;
     systemd.enable = true;
   };
