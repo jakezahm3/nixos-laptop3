@@ -58,6 +58,7 @@ in {
 
   services.desktopManager.plasma6.enable = true;
 
+  networking.networkmanager.enable = true;
   services.networkd-dispatcher = {
     enable = true;
     rules."50-tailscale-optimizations" = {
