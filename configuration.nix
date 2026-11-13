@@ -56,6 +56,8 @@ in {
     gui.enable = true;
   };
 
+  services.desktopManager.plasma6.enable = true;
+
   services.networkd-dispatcher = {
     enable = true;
     rules."50-tailscale-optimizations" = {
@@ -186,6 +188,7 @@ in {
   };
 
   # Enable CUPS to print documents.
+
   services.pipewire.socketActivation = true;
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
