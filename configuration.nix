@@ -79,7 +79,7 @@ in {
 
   # Set your time zone.
   time = {
-    timeZone = "America/New_York";
+    timeZone = "America/Chicago";
   };
 
   # Select internationalisation properties.
